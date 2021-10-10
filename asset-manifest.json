@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/sit-scor-line-liff/static/css/main.a617e044.chunk.css",
+    "main.js": "/sit-scor-line-liff/static/js/main.30d49c1e.chunk.js",
+    "main.js.map": "/sit-scor-line-liff/static/js/main.30d49c1e.chunk.js.map",
+    "runtime-main.js": "/sit-scor-line-liff/static/js/runtime-main.840ca40e.js",
+    "runtime-main.js.map": "/sit-scor-line-liff/static/js/runtime-main.840ca40e.js.map",
+    "static/js/2.9ab6fef1.chunk.js": "/sit-scor-line-liff/static/js/2.9ab6fef1.chunk.js",
+    "static/js/2.9ab6fef1.chunk.js.map": "/sit-scor-line-liff/static/js/2.9ab6fef1.chunk.js.map",
+    "static/js/3.482cb9a3.chunk.js": "/sit-scor-line-liff/static/js/3.482cb9a3.chunk.js",
+    "static/js/3.482cb9a3.chunk.js.map": "/sit-scor-line-liff/static/js/3.482cb9a3.chunk.js.map",
+    "index.html": "/sit-scor-line-liff/index.html",
+    "static/css/main.a617e044.chunk.css.map": "/sit-scor-line-liff/static/css/main.a617e044.chunk.css.map",
+    "static/js/2.9ab6fef1.chunk.js.LICENSE.txt": "/sit-scor-line-liff/static/js/2.9ab6fef1.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/sit-scor-line-liff/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.840ca40e.js",
+    "static/js/2.9ab6fef1.chunk.js",
+    "static/css/main.a617e044.chunk.css",
+    "static/js/main.30d49c1e.chunk.js"
+  ]
+}

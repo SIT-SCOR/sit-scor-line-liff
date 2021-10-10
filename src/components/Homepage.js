@@ -47,7 +47,6 @@ class Homepage extends Component {
                 <header className="App-header">
                     <div className="support">
                         <img width="25%" src="https://img.icons8.com/color/420/line-me.png" />
-                        <img width="25%" src="https://lh3.googleusercontent.com/illfpW97yh9TtvtmtN-BiNcpomys5gzAj4nw8Je6Ydby814PRquAPcvsP2tAV43Iqe8logzjUnjp7tN5Dvk" />
                     </div>
                     <div className="support">
                         {

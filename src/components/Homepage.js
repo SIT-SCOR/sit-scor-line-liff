@@ -81,7 +81,7 @@ export default function Homepage() {
                 <div className="container-fluid p-3">
                     <div className="row">
                         <div className="col-12">
-                            <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '20vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
+                            <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
                                 <img src={Register} alt="Register" width="37%" />
                                 <p>Register</p>
                             </button>
@@ -91,7 +91,7 @@ export default function Homepage() {
                 <div className="container-fluid p-3">
                     <div className="row">
                         <div className="col-12">
-                            <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '20vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
+                            <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
                                 <img src={Feedback} alt="Feedback" width="37%" />
                                 <p>Feedback</p>
                             </button>

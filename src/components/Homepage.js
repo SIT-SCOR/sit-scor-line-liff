@@ -17,22 +17,22 @@ export default function Homepage() {
     const [alreadyRegister, setAlreadyRegister] = useState(Boolean)
 
     useEffect(() => {
+        let uid = "";
         const getProfile = () => {
-            let userid = "";
             liff.init(async () => {
                 let getProfile = await liff.getProfile();
                 setName(getProfile.displayName);
                 setUserLineID(getProfile.userId);
                 setPictureUrl(getProfile.pictureUrl);
-                userid = getProfile.userId;
+                uid = getProfile.userId;
             });
-            const check = async (userid) => {
-                const checkRegister = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/checkregister/${userid}`)
-                setAlreadyRegister(checkRegister.data.alreadyHaved)
-            }
-            check(userid)
+        }
+        const check = async (uid) => {
+            const checkRegister = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/checkregister/${uid}`)
+            setAlreadyRegister(checkRegister.data.alreadyHaved)
         }
         getProfile()
+        check(uid)
     }, [])
 
     // const sendMessage = () => {

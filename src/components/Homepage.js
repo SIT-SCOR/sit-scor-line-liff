@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import '../App.css';
-// eslint-disable-next-line
-import Button from '@material-ui/core/Button';
 import Logo from '../images/Logo.png'
 import userLoad from '../images/user-load.png'
 import Register from '../images/register.png'
 import Feedback from '../images/feedback.png'
+import { Link } from 'react-router-dom';
 
 const liff = window.liff;
 
@@ -14,7 +13,6 @@ export default function Homepage() {
     const [name, setName] = useState("")
     const [userLineID, setUserLineID] = useState("")
     const [pictureUrl, setPictureUrl] = useState("")
-    // const [statusMessage, setStatusMessage] = useState("")
 
     useEffect(() => {
         const getProfile = () => {
@@ -23,24 +21,23 @@ export default function Homepage() {
                 setName(getProfile.displayName);
                 setUserLineID(getProfile.userId);
                 setPictureUrl(getProfile.pictureUrl);
-                // setStatusMessage(getProfile.statusMessage);
             });
         }
         getProfile()
     }, [])
-    // eslint-disable-next-line
-    const sendMessage = () => {
-        liff.sendMessages([{
-            type: 'text',
-            text: "Hi LIFF"
-        }]).then(() => {
-            liff.closeWindow();
-        });
-    }
-    // eslint-disable-next-line
-    const closeLIFF = () => {
-        liff.closeWindow();
-    }
+
+    // const sendMessage = () => {
+    //     liff.sendMessages([{
+    //         type: 'text',
+    //         text: "Hi LIFF"
+    //     }]).then(() => {
+    //         liff.closeWindow();
+    //     });
+    // }
+
+    // const closeLIFF = () => {
+    //     liff.closeWindow();
+    // }
 
     return (
         <div className="App">
@@ -60,7 +57,7 @@ export default function Homepage() {
                                     {
                                         (pictureUrl && pictureUrl !== '')
                                             ?
-                                            <img width="35%" src={pictureUrl} alt="user profile" style={{borderRadius: '50%'}} />
+                                            <img width="35%" src={pictureUrl} alt="user profile" style={{ borderRadius: '50%' }} />
                                             :
                                             <img width="35%" src={userLoad} alt="user loading" />
                                     }
@@ -81,37 +78,40 @@ export default function Homepage() {
                 <div className="container-fluid p-3">
                     <div className="row">
                         <div className="col-12">
-                            <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
-                                <img src={Register} alt="Register" width="37%" />
-                                <p>Register</p>
-                            </button>
+                            <Link to={{
+                                pathname: '/Register',
+                                state: {
+                                    userLineID: userLineID
+                                }
+                            }}>
+                                <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
+                                    <img src={Register} alt="Register" width="37%" />
+                                    <p>Register</p>
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
                 <div className="container-fluid p-3">
                     <div className="row">
                         <div className="col-12">
-                            <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
-                                <img src={Feedback} alt="Feedback" width="37%" />
-                                <p>Feedback</p>
-                            </button>
+                            <Link to={{
+                                pathname: '/Feedback',
+                                state: {
+                                    userLineID: userLineID,
+                                    name: name,
+                                    pictureUrl: pictureUrl
+                                }
+                            }}>
+                                <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
+                                    <img src={Feedback} alt="Feedback" width="37%" />
+                                    <p>Feedback</p>
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
-                {/* {
-                    (userLineID && userLineID !== '')
-                        ?
-                        <p>LineID: {userLineID}</p>
-                        :
-                        null
-                } */}
-                {/* {
-                    (statusMessage && statusMessage !== '')
-                        ?
-                        <p>statusMessage: {statusMessage}</p>
-                        :
-                        null
-                } */}
+                <p>{userLineID}</p>
                 {/* <div className="support">
                     <Button variant="contained" onClick={sendMessage.bind(this)} style={{ marginRight: '20px' }}>
                         Send Message

@@ -58,7 +58,7 @@ export default function Homepage() {
                                     {
                                         (pictureUrl && pictureUrl !== '')
                                             ?
-                                            <img width="35%" src={pictureUrl} alt="user profile" />
+                                            <img width="35%" src={pictureUrl} alt="user profile" style={{borderRadius: '50%'}} />
                                             :
                                             <img width="35%" src={userLoad} alt="user loading" />
                                     }

@@ -4,6 +4,8 @@ import '../App.css';
 import Button from '@material-ui/core/Button';
 import Logo from '../images/Logo.png'
 import userLoad from '../images/user-load.png'
+import Register from '../images/register.png'
+import Feedback from '../images/feedback.png'
 
 const liff = window.liff;
 
@@ -79,8 +81,9 @@ export default function Homepage() {
                 <div className="container-fluid p-3">
                     <div className="row">
                         <div className="col-12">
-                            <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '15vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
-                                Register
+                            <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '20vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
+                                <img src={Register} alt="Register" width="37%" />
+                                <p>Register</p>
                             </button>
                         </div>
                     </div>
@@ -88,19 +91,20 @@ export default function Homepage() {
                 <div className="container-fluid p-3">
                     <div className="row">
                         <div className="col-12">
-                            <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '15vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
-                                Feedback
+                            <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '20vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
+                                <img src={Feedback} alt="Feedback" width="37%" />
+                                <p>Feedback</p>
                             </button>
                         </div>
                     </div>
                 </div>
-                {
+                {/* {
                     (userLineID && userLineID !== '')
                         ?
                         <p>LineID: {userLineID}</p>
                         :
                         null
-                }
+                } */}
                 {/* {
                     (statusMessage && statusMessage !== '')
                         ?
@@ -117,9 +121,6 @@ export default function Homepage() {
                     </Button>
                 </div> */}
             </header>
-            <footer className="App-footer">
-
-            </footer>
         </div>
     )
 }

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import '../App.css';
+// eslint-disable-next-line
 import Button from '@material-ui/core/Button';
+import Logo from '../images/Logo.png'
+import userLoad from '../images/user-load.png'
 
 const liff = window.liff;
 
@@ -9,7 +12,7 @@ export default function Homepage() {
     const [name, setName] = useState("")
     const [userLineID, setUserLineID] = useState("")
     const [pictureUrl, setPictureUrl] = useState("")
-    const [statusMessage, setStatusMessage] = useState("")
+    // const [statusMessage, setStatusMessage] = useState("")
 
     useEffect(() => {
         const getProfile = () => {
@@ -18,12 +21,12 @@ export default function Homepage() {
                 setName(getProfile.displayName);
                 setUserLineID(getProfile.userId);
                 setPictureUrl(getProfile.pictureUrl);
-                setStatusMessage(getProfile.statusMessage);
+                // setStatusMessage(getProfile.statusMessage);
             });
         }
         getProfile()
     }, [])
-
+    // eslint-disable-next-line
     const sendMessage = () => {
         liff.sendMessages([{
             type: 'text',
@@ -32,33 +35,65 @@ export default function Homepage() {
             liff.closeWindow();
         });
     }
-
+    // eslint-disable-next-line
     const closeLIFF = () => {
         liff.closeWindow();
     }
 
     return (
         <div className="App">
-            <header className="App-header">
-                <div className="support">
-                    <img width="25%" src="https://img.icons8.com/color/420/line-me.png" alt="" />
+            <div className="container background-header">
+                <div className="row">
+                    <div className="col-12">
+                        <img src={Logo} alt="logo" width="90px" height="95px" />
+                    </div>
                 </div>
-                <div className="support">
-                    {
-                        (pictureUrl && pictureUrl !== '')
-                            ?
-                            <img width="25%" src={pictureUrl} alt="" />
-                            :
-                            null
-                    }
+            </div>
+            <header className="App-header gap-3">
+                <div className="container-fluid p-3">
+                    <div className="card maincard-background">
+                        <div className="card-body">
+                            <div className="row">
+                                <div className="col-5">
+                                    {
+                                        (pictureUrl && pictureUrl !== '')
+                                            ?
+                                            <img width="35%" src={pictureUrl} alt="user profile" />
+                                            :
+                                            <img width="35%" src={userLoad} alt="user loading" />
+                                    }
+                                </div>
+                                <div className="col-7 d-flex align-items-center" style={{ fontSize: '20px' }}>
+                                    {
+                                        (name && name !== '')
+                                            ?
+                                            <span>{name}</span>
+                                            :
+                                            <span>Loading</span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                {
-                    (name && name !== '')
-                        ?
-                        <p>Name: {name}</p>
-                        :
-                        null
-                }
+                <div className="container-fluid p-3">
+                    <div className="row">
+                        <div className="col-12">
+                            <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '15vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
+                                Register
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div className="container-fluid p-3">
+                    <div className="row">
+                        <div className="col-12">
+                            <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '15vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
+                                Feedback
+                            </button>
+                        </div>
+                    </div>
+                </div>
                 {
                     (userLineID && userLineID !== '')
                         ?
@@ -66,115 +101,25 @@ export default function Homepage() {
                         :
                         null
                 }
-                {
+                {/* {
                     (statusMessage && statusMessage !== '')
                         ?
                         <p>statusMessage: {statusMessage}</p>
                         :
                         null
-                }
-                <div className="support">
+                } */}
+                {/* <div className="support">
                     <Button variant="contained" onClick={sendMessage.bind(this)} style={{ marginRight: '20px' }}>
                         Send Message
                     </Button>
                     <Button variant="contained" onClick={closeLIFF.bind(this)} color="secondary">
                         Close LIFF
                     </Button>
-                </div>
+                </div> */}
             </header>
+            <footer className="App-footer">
+
+            </footer>
         </div>
     )
 }
-
-// class Homepage extends Component {
-//     constructor(props) {
-//         super(props);
-
-//         this.state = {
-//             name: '',
-//             userLineID: '',
-//             pictureUrl: '',
-//             statusMessage: ''
-//         };
-//     }
-
-//     getProfile() {
-//         liff.init(async () => {
-//             let getProfile = await liff.getProfile();
-//             this.setState({
-//                 name: getProfile.displayName,
-//                 userLineID: getProfile.userId,
-//                 pictureUrl: getProfile.pictureUrl,
-//                 statusMessage: getProfile.statusMessage
-//             });
-//         });
-//     }
-
-//     sendMessage() {
-//         liff.sendMessages([{
-//             type: 'text',
-//             text: "Hi LIFF"
-//         }]).then(() => {
-//             liff.closeWindow();
-//         });
-//     }
-
-//     closeLIFF() {
-//         liff.closeWindow();
-//     }
-
-//     render() {
-//         return (
-//             <div className="App">
-//                 <header className="App-header">
-//                     <div className="support">
-//                         <img width="25%" src="https://img.icons8.com/color/420/line-me.png" alt="" />
-//                     </div>
-//                     <div className="support">
-//                         {
-//                             (this.state.pictureUrl && this.state.pictureUrl !== '')
-//                                 ?
-//                                 <img width="25%" src={this.state.pictureUrl} alt="" />
-//                                 :
-//                                 null
-//                         }
-//                     </div>
-//                     {
-//                         (this.state.name && this.state.name !== '')
-//                             ?
-//                             <p>Name: {this.state.name}</p>
-//                             :
-//                             null
-//                     }
-//                     {
-//                         (this.state.userLineID && this.state.userLineID !== '')
-//                             ?
-//                             <p>LineID: {this.state.userLineID}</p>
-//                             :
-//                             null
-//                     }
-//                     {
-//                         (this.state.statusMessage && this.state.statusMessage !== '')
-//                             ?
-//                             <p>statusMessage: {this.state.statusMessage}</p>
-//                             :
-//                             null
-//                     }
-//                     <div className="support">
-//                         <Button variant="contained" onClick={this.getProfile.bind(this)} style={{ marginRight: '20px' }} color="primary">
-//                             Getdata INFO
-//                         </Button>
-//                         <Button variant="contained" onClick={this.sendMessage.bind(this)} style={{ marginRight: '20px' }}>
-//                             Send Message
-//                         </Button>
-//                         <Button variant="contained" onClick={this.closeLIFF.bind(this)} color="secondary">
-//                             Close LIFF
-//                         </Button>
-//                     </div>
-//                 </header>
-//             </div>
-//         );
-//     }
-// }
-
-// export default Homepage;

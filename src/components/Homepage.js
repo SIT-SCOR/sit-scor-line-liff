@@ -5,6 +5,7 @@ import userLoad from '../images/user-load.png'
 import Register from '../images/register.png'
 import Feedback from '../images/feedback.png'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const liff = window.liff;
 
@@ -13,6 +14,7 @@ export default function Homepage() {
     const [name, setName] = useState("")
     const [userLineID, setUserLineID] = useState("")
     const [pictureUrl, setPictureUrl] = useState("")
+    const [alreadyRegister, setAlreadyRegister] = useState(false)
 
     useEffect(() => {
         const getProfile = () => {
@@ -23,8 +25,13 @@ export default function Homepage() {
                 setPictureUrl(getProfile.pictureUrl);
             });
         }
+        const check = async () => {
+            const checkRegister = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/checkregister/${userLineID}`)
+            setAlreadyRegister(checkRegister.data.alreadyHaved)
+        }
         getProfile()
-    }, [])
+        check()
+    }, [userLineID])
 
     // const sendMessage = () => {
     //     liff.sendMessages([{
@@ -78,17 +85,33 @@ export default function Homepage() {
                 <div className="container-fluid p-3">
                     <div className="row">
                         <div className="col-12">
-                            <Link to={{
-                                pathname: '/Register',
-                                state: {
-                                    userLineID: userLineID
-                                }
-                            }}>
-                                <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
-                                    <img src={Register} alt="Register" width="37%" />
-                                    <p>Register</p>
-                                </button>
-                            </Link>
+                            {
+                                alreadyRegister === false
+                                    ?
+                                    <Link to={{
+                                        pathname: '/Register',
+                                        state: {
+                                            userLineID: userLineID
+                                        }
+                                    }}>
+                                        <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
+                                            <img src={Register} alt="Register" width="37%" />
+                                            <p>Register</p>
+                                        </button>
+                                    </Link>
+                                    :
+                                    <Link to={{
+                                        pathname: '/EditInfo',
+                                        state: {
+                                            userLineID: userLineID
+                                        }
+                                    }}>
+                                        <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
+                                            <img src={Register} alt="Edit" width="37%" />
+                                            <p>Edit</p>
+                                        </button>
+                                    </Link>
+                            }
                         </div>
                     </div>
                 </div>

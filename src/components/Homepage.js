@@ -132,7 +132,6 @@ export default function Homepage() {
                         </div>
                     </div>
                 </div>
-                <p>{userLineID}</p>
                 {/* <div className="support">
                     <Button variant="contained" onClick={sendMessage.bind(this)} style={{ marginRight: '20px' }}>
                         Send Message

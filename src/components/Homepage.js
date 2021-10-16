@@ -14,7 +14,7 @@ export default function Homepage() {
     const [name, setName] = useState("")
     const [userLineID, setUserLineID] = useState("")
     const [pictureUrl, setPictureUrl] = useState("")
-    const [alreadyRegister, setAlreadyRegister] = useState(false)
+    const [alreadyRegister, setAlreadyRegister] = useState(Boolean)
 
     useEffect(() => {
         const getProfile = () => {

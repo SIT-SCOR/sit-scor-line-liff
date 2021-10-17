@@ -3,9 +3,11 @@ import '../App.css';
 import axios from 'axios';
 import Logo from '../images/Logo.png'
 import userLoad from '../images/user-load.png'
+import { useHistory } from 'react-router';
 
 export default function Feedback(props) {
     const [message, setMessage] = useState("")
+    const history = useHistory()
 
     const name = props.location.state.name
     const pictureUrl = props.location.state.pictureUrl
@@ -19,8 +21,7 @@ export default function Feedback(props) {
             }
             axios.post(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/feedback/create`, request)
                 .then(() => {
-                    window.alert("Send feedback complete")
-                    clearForm()
+                    history.push('/ConfirmFeedback')
                 })
                 .catch(() => {
                     window.alert("Error occured in server")
@@ -28,10 +29,6 @@ export default function Feedback(props) {
         } else {
             window.alert("Please enter message!!!")
         }
-    }
-
-    const clearForm = () => {
-        setMessage("")
     }
 
     return (

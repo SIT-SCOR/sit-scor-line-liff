@@ -119,7 +119,6 @@ export default function Homepage() {
                             <Link to={{
                                 pathname: '/Feedback',
                                 state: {
-                                    userLineID: userLineID,
                                     name: name,
                                     pictureUrl: pictureUrl
                                 }

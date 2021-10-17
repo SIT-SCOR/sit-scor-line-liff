@@ -22,6 +22,14 @@
   color: white;
 }
 
+.ConfirmFeedback-header {
+  background-color: #A7C5EB;
+  min-height: 100vh;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
 .Feedback-header {
   background-color: #FFFFFF;
   min-height: 89vh;

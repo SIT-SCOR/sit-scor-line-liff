@@ -48,7 +48,7 @@ export default function Homepage() {
         <div className="App">
             <div className="container background-header">
                 <div className="row">
-                    <div className="col-12">
+                    <div className="col-12 col-sm-12">
                         <img src={Logo} alt="logo" width="90px" height="95px" />
                     </div>
                 </div>
@@ -58,7 +58,7 @@ export default function Homepage() {
                     <div className="card maincard-background">
                         <div className="card-body">
                             <div className="row">
-                                <div className="col-5">
+                                <div className="col-5 col-sm-5">
                                     {
                                         (pictureUrl && pictureUrl !== '')
                                             ?
@@ -67,7 +67,7 @@ export default function Homepage() {
                                             <img width="35%" src={userLoad} alt="user loading" />
                                     }
                                 </div>
-                                <div className="col-7 d-flex align-items-center" style={{ fontSize: '20px' }}>
+                                <div className="col-7 col-sm-5 d-flex align-items-center" style={{ fontSize: '20px' }}>
                                     {
                                         (name && name !== '')
                                             ?
@@ -82,7 +82,7 @@ export default function Homepage() {
                 </div>
                 <div className="container-fluid p-3">
                     <div className="row">
-                        <div className="col-12">
+                        <div className="col-12 col-sm-12">
                             {
                                 alreadyRegister === false
                                     ?
@@ -115,7 +115,7 @@ export default function Homepage() {
                 </div>
                 <div className="container-fluid p-3">
                     <div className="row">
-                        <div className="col-12">
+                        <div className="col-12 col-sm-12">
                             <Link to={{
                                 pathname: '/Feedback',
                                 state: {
@@ -132,14 +132,6 @@ export default function Homepage() {
                         </div>
                     </div>
                 </div>
-                {/* <div className="support">
-                    <Button variant="contained" onClick={sendMessage.bind(this)} style={{ marginRight: '20px' }}>
-                        Send Message
-                    </Button>
-                    <Button variant="contained" onClick={closeLIFF.bind(this)} color="secondary">
-                        Close LIFF
-                    </Button>
-                </div> */}
             </header>
         </div>
     )

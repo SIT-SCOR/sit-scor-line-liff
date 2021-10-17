@@ -22,12 +22,26 @@
   color: white;
 }
 
+.Feedback-header {
+  background-color: #FFFFFF;
+  min-height: 89vh;
+  max-height: 100vh;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
 .background-header {
   background: linear-gradient(180deg, rgba(167, 197, 235, 0) 0%, #A7C5EB 100%);
 }
 
 .maincard-background {
   background: #F8D000;
+  border-radius: 10px;
+}
+
+.feedback-background {
+  background: #A7C5EB;
   border-radius: 10px;
 }
 

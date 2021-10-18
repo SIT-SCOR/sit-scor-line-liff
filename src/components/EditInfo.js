@@ -41,7 +41,52 @@ export default function EditInfo(props) {
     const updateInfo = (e) => {
         e.preventDefault()
 
-
+        if (lineID !== "" && title !== "" && firstname !== "" && lastname !== "" && studentID !== "" && faculty !== "" && year !== "" && email !== "" && password !== "" && repassword !== "") {
+            if (password !== repassword) {
+                window.alert("Password and Re-password not match. Please enter password & re-password again !")
+            }
+            if (password === repassword) {
+                if (userLineID === lineID) {
+                    let studentUpdate = {
+                        title: title,
+                        firstname: firstname,
+                        lastname: lastname,
+                        faculty: faculty,
+                        year: year,
+                        email: email,
+                        line_id: lineID,
+                        password: password
+                    }
+                    axios.put(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/update/${studentID}`, studentUpdate)
+                        .then(() => {
+                            history.push('/ConfirmEdit')
+                        })
+                        .error(() => {
+                            window.alert("Error occur in server. Please contact admin.")
+                        })
+                } else {
+                    let studentUpdate = {
+                        title: title,
+                        firstname: firstname,
+                        lastname: lastname,
+                        faculty: faculty,
+                        year: year,
+                        email: email,
+                        line_id: userLineID,
+                        password: password
+                    }
+                    axios.put(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/update/${studentID}`, studentUpdate)
+                        .then(() => {
+                            history.push('/ConfirmEdit')
+                        })
+                        .error(() => {
+                            window.alert("Error occur in server. Please contact admin.")
+                        })
+                }
+            }
+        } else {
+            window.alert("Please enter every input")
+        }
     }
 
     const onChangeTitle = (e) => {
@@ -102,10 +147,10 @@ export default function EditInfo(props) {
                         </div>
                     </div>
                     <div className="row p-2">
-                        <div className="col-6">
+                        <div className="col-3">
                             <input className="form-control" placeholder="Year" name="year" value={year} onChange={(e) => setYear(e.target.value)} />
                         </div>
-                        <div className="col-6">
+                        <div className="col-9">
                             <input className="form-control" placeholder="Email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         </div>
                     </div>

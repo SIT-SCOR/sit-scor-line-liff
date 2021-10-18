@@ -12,19 +12,22 @@ export default function CheckScore(props) {
     const [semester, setSemester] = useState("")
     const [subject, setSubject] = useState("")
     const [password, setPassword] = useState("")
+    const [fetchPassword, setFetchPassword] = useState("")
 
     useEffect(() => {
         const fetchInfo = async () => {
             let info = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/read/${userLineID}`)
             setStudentID(info.data.id)
-            setPassword(info.data.password)
+            setFetchPassword(info.data.password)
             let semester = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/semester/reads/${info.data.id}`)
-            let semesters = semester.data
-            $.each(semesters, function (key, value){
-                $('#selectSemester').append($('<option>', {
-                    value: value.semester,
-                    text: value.semester
-                }));
+            let semesters = Array(semester.data)
+            semesters.forEach(semester => {
+                $.each(semester, function (key, value) {
+                    $('#selectSemester').append($('<option>', {
+                        value: value,
+                        text: value
+                    }));
+                })
             })
         }
         fetchInfo()

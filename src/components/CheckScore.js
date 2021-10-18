@@ -24,8 +24,8 @@ export default function CheckScore(props) {
             semesters.forEach(semester => {
                 $.each(semester, function (key, value) {
                     $('#selectSemester').append($('<option>', {
-                        value: value,
-                        text: value
+                        value: value.semester,
+                        text: value.semester
                     }));
                 })
             })

@@ -92,14 +92,23 @@ export default function CheckScore(props) {
                         </div>
                     </div>
                     <div className="row p-3">
-                        <div className="col-12">
+                        <div className="col-7">
+                            <span>
+                                Semester:
+                            </span>
+                        </div>
+                        <div className="col-5">
                             <select id="selectSemester" className="selectSemester" onChange={(e) => onChangeSemester(e)} width="100%"></select>
                         </div>
                     </div>
                     <div className="row p-3">
-                        <div className="col-12">
-                        <select id="selectSubject" className="selectSubject" onChange={(e) => onChangeSubject(e)} width="100%"></select>
-                            {/* <input className="form-control" placeholder="Subject" name="subject" value={subject} onChange={(e) => setStudentID(e.target.value)} /> */}
+                        <div className="col-7">
+                            <span>
+                                Subject:
+                            </span>
+                        </div>
+                        <div className="col-5">
+                            <select id="selectSubject" className="selectSubject" onChange={(e) => onChangeSubject(e)} width="100%"></select>
                         </div>
                     </div>
                     <div className="row p-3">

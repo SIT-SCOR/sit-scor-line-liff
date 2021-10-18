@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/sit-scor-line-liff/static/css/main.b6985c72.chunk.css",
-    "main.js": "/sit-scor-line-liff/static/js/main.aef84c2d.chunk.js",
-    "main.js.map": "/sit-scor-line-liff/static/js/main.aef84c2d.chunk.js.map",
+    "main.css": "/sit-scor-line-liff/static/css/main.e360b323.chunk.css",
+    "main.js": "/sit-scor-line-liff/static/js/main.bbcf2935.chunk.js",
+    "main.js.map": "/sit-scor-line-liff/static/js/main.bbcf2935.chunk.js.map",
     "runtime-main.js": "/sit-scor-line-liff/static/js/runtime-main.596c241a.js",
     "runtime-main.js.map": "/sit-scor-line-liff/static/js/runtime-main.596c241a.js.map",
     "static/css/2.0a9ec390.chunk.css": "/sit-scor-line-liff/static/css/2.0a9ec390.chunk.css",
-    "static/js/2.60a163bf.chunk.js": "/sit-scor-line-liff/static/js/2.60a163bf.chunk.js",
-    "static/js/2.60a163bf.chunk.js.map": "/sit-scor-line-liff/static/js/2.60a163bf.chunk.js.map",
+    "static/js/2.2ffba666.chunk.js": "/sit-scor-line-liff/static/js/2.2ffba666.chunk.js",
+    "static/js/2.2ffba666.chunk.js.map": "/sit-scor-line-liff/static/js/2.2ffba666.chunk.js.map",
     "static/js/3.adf86d03.chunk.js": "/sit-scor-line-liff/static/js/3.adf86d03.chunk.js",
     "static/js/3.adf86d03.chunk.js.map": "/sit-scor-line-liff/static/js/3.adf86d03.chunk.js.map",
     "index.html": "/sit-scor-line-liff/index.html",
     "static/css/2.0a9ec390.chunk.css.map": "/sit-scor-line-liff/static/css/2.0a9ec390.chunk.css.map",
-    "static/css/main.b6985c72.chunk.css.map": "/sit-scor-line-liff/static/css/main.b6985c72.chunk.css.map",
-    "static/js/2.60a163bf.chunk.js.LICENSE.txt": "/sit-scor-line-liff/static/js/2.60a163bf.chunk.js.LICENSE.txt",
+    "static/css/main.e360b323.chunk.css.map": "/sit-scor-line-liff/static/css/main.e360b323.chunk.css.map",
+    "static/js/2.2ffba666.chunk.js.LICENSE.txt": "/sit-scor-line-liff/static/js/2.2ffba666.chunk.js.LICENSE.txt",
     "static/media/Logo.ca6111e2.png": "/sit-scor-line-liff/static/media/Logo.ca6111e2.png",
-    "static/media/feedback.72304cef.png": "/sit-scor-line-liff/static/media/feedback.72304cef.png",
-    "static/media/register.6b52f6bb.png": "/sit-scor-line-liff/static/media/register.6b52f6bb.png",
+    "static/media/App.css": "/sit-scor-line-liff/static/media/lineliff.9230d010.jpg",
+    "static/media/register.a2e07c07.png": "/sit-scor-line-liff/static/media/register.a2e07c07.png",
     "static/media/verified.8a38057f.png": "/sit-scor-line-liff/static/media/verified.8a38057f.png"
   },
   "entrypoints": [
     "static/js/runtime-main.596c241a.js",
     "static/css/2.0a9ec390.chunk.css",
-    "static/js/2.60a163bf.chunk.js",
-    "static/css/main.b6985c72.chunk.css",
-    "static/js/main.aef84c2d.chunk.js"
+    "static/js/2.2ffba666.chunk.js",
+    "static/css/main.e360b323.chunk.css",
+    "static/js/main.bbcf2935.chunk.js"
   ]
 }

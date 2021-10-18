@@ -29,12 +29,6 @@ export default function CheckScore(props) {
                     }));
                 })
             })
-            // $.each(semesters, function (key, value) {
-            //     $('#selectSemester').append($('<option>', {
-            //         value: value,
-            //         text: value
-            //     }));
-            // })
         }
         fetchInfo()
     }, [userLineID])
@@ -49,9 +43,24 @@ export default function CheckScore(props) {
         history.push("/")
     }
 
-    const onChangeSemester = (e) => {
+    const onChangeSemester = async (e) => {
         const selectedSemester = e.target.value
         setSemester(selectedSemester)
+        let subjectList = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/${studentID}/semester/${selectedSemester}/subject/reads`)
+        let subjects = Array(subjectList.data)
+        subjects.forEach(subject => {
+            $.each(subject, function (key, value) {
+                $('#selectSubject').append($('<option>', {
+                    value: value.subjectid,
+                    text: value.subjectid
+                }));
+            })
+        })
+    }
+
+    const onChangeSubject = (e) => {
+        const selectedSubject = e.target.value
+        setSubject(selectedSubject)
     }
 
     return (
@@ -84,12 +93,13 @@ export default function CheckScore(props) {
                     </div>
                     <div className="row p-3">
                         <div className="col-12">
-                            <select id="selectSemester" className="selectSemester" onChange={(e) => onChangeSemester(e)}></select>
+                            <select id="selectSemester" className="selectSemester" onChange={(e) => onChangeSemester(e)} width="100%"></select>
                         </div>
                     </div>
                     <div className="row p-3">
                         <div className="col-12">
-                            <input className="form-control" placeholder="Subject" name="subject" value={subject} onChange={(e) => setStudentID(e.target.value)} />
+                        <select id="selectSubject" className="selectSubject" onChange={(e) => onChangeSubject(e)} width="100%"></select>
+                            {/* <input className="form-control" placeholder="Subject" name="subject" value={subject} onChange={(e) => setStudentID(e.target.value)} /> */}
                         </div>
                     </div>
                     <div className="row p-3">

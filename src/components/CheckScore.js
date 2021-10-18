@@ -29,7 +29,7 @@ export default function CheckScore(props) {
             //         }));
             //     })
             // })
-            $.each(semester, function (key, value) {
+            $.each(semesters, function (key, value) {
                 $('#selectSemester').append($('<option>', {
                     value: value,
                     text: value

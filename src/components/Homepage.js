@@ -4,6 +4,7 @@ import Logo from '../images/Logo.png'
 import userLoad from '../images/user-load.png'
 import Register from '../images/register.png'
 import Feedback from '../images/feedback.png'
+import Scoreboard from '../images/scoreboard.png'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -131,6 +132,30 @@ export default function Homepage() {
                         </div>
                     </div>
                 </div>
+                {
+                    alreadyRegister === false
+                        ?
+                        null
+                        :
+                        <div className="container-fluid p-3">
+                            <div className="row">
+                                <div className="col-12 col-sm-12">
+                                    <Link to={{
+                                        pathname: '/CheckScore',
+                                        state: {
+                                            name: name,
+                                            pictureUrl: pictureUrl
+                                        }
+                                    }}>
+                                        <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
+                                            <img src={Scoreboard} alt="Feedback" width="37%" />
+                                            <p>Check Score</p>
+                                        </button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                }
             </header>
         </div>
     )

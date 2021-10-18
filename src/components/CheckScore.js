@@ -93,7 +93,7 @@ export default function CheckScore(props) {
                     </div>
                     <div className="row p-3">
                         <div className="col-7">
-                            <span>
+                            <span style={{color: "#9E9E9E"}}>
                                 Semester:
                             </span>
                         </div>
@@ -103,7 +103,7 @@ export default function CheckScore(props) {
                     </div>
                     <div className="row p-3">
                         <div className="col-7">
-                            <span>
+                            <span style={{color: "#9E9E9E"}}>
                                 Subject:
                             </span>
                         </div>

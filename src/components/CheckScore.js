@@ -93,22 +93,26 @@ export default function CheckScore(props) {
                     </div>
                     <div className="row p-3">
                         <div className="col-7">
-                            <span style={{color: "#9E9E9E"}}>
+                            <span style={{ color: "#9E9E9E" }}>
                                 Semester:
                             </span>
                         </div>
                         <div className="col-5">
-                            <select id="selectSemester" className="selectSemester" onChange={(e) => onChangeSemester(e)} width="100%"></select>
+                            <select id="selectSemester" className="selectSemester" onChange={(e) => onChangeSemester(e)} width="100%">
+                                <option>Semester...</option>
+                            </select>
                         </div>
                     </div>
                     <div className="row p-3">
                         <div className="col-7">
-                            <span style={{color: "#9E9E9E"}}>
+                            <span style={{ color: "#9E9E9E" }}>
                                 Subject:
                             </span>
                         </div>
                         <div className="col-5">
-                            <select id="selectSubject" className="selectSubject" onChange={(e) => onChangeSubject(e)} width="100%"></select>
+                            <select id="selectSubject" className="selectSubject" onChange={(e) => onChangeSubject(e)} width="100%">
+                                <option>Subject...</option>
+                            </select>
                         </div>
                     </div>
                     <div className="row p-3">

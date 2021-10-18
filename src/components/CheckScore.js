@@ -92,16 +92,6 @@ export default function CheckScore(props) {
                         </div>
                     </div>
                     <div className="row p-3">
-                        {/* <div className="col-7">
-                            <span style={{ color: "#9E9E9E" }}>
-                                Semester:
-                            </span>
-                        </div>
-                        <div className="col-5">
-                            <select id="selectSemester" className="selectSemester" onChange={(e) => onChangeSemester(e)} width="100%">
-                                <option>Semester...</option>
-                            </select>
-                        </div> */}
                         <div className="col-6">
                             <select id="selectSemester" className="selectSemester" onChange={(e) => onChangeSemester(e)} width="100%">
                                 <option>Semester...</option>
@@ -113,18 +103,6 @@ export default function CheckScore(props) {
                             </select>
                         </div>
                     </div>
-                    {/* <div className="row p-3">
-                        <div className="col-7">
-                            <span style={{ color: "#9E9E9E" }}>
-                                Subject:
-                            </span>
-                        </div>
-                        <div className="col-5">
-                            <select id="selectSubject" className="selectSubject" onChange={(e) => onChangeSubject(e)} width="100%">
-                                <option>Subject...</option>
-                            </select>
-                        </div>
-                    </div> */}
                     <div className="row p-3">
                         <div className="col-12">
                             <input className="form-control" placeholder="Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
@@ -132,7 +110,7 @@ export default function CheckScore(props) {
                     </div>
                     <div className="row p-2 d-flex justify-content-center">
                         <div className="col-4">
-                            <button className="btn" onClick={(e) => checkScore(e)} style={{ fontWeight: 'bold', color: '#FFFFFF', backgroundColor: '#91E45E', width: '100%' }}>Update</button>
+                            <button className="btn" onClick={(e) => checkScore(e)} style={{ fontWeight: 'bold', color: '#FFFFFF', backgroundColor: '#91E45E', width: '100%' }}>Check</button>
                         </div>
                     </div>
                     <div className="row p-2 d-flex justify-content-center">

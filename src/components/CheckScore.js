@@ -19,10 +19,11 @@ export default function CheckScore(props) {
             setStudentID(info.data.id)
             setPassword(info.data.password)
             let semester = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/semester/reads/${info.data.id}`)
-            $.each(semester.data, function (key, value){
+            let semesters = semester.data
+            $.each(semesters, function (key, value){
                 $('#selectSemester').append($('<option>', {
-                    value: value,
-                    text: value
+                    value: value.semester,
+                    text: value.semester
                 }));
             })
         }

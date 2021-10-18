@@ -21,20 +21,20 @@ export default function CheckScore(props) {
             setFetchPassword(info.data.password)
             let semester = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/semester/reads/${info.data.id}`)
             let semesters = Array(semester.data)
-            // semesters.forEach(semester => {
-            //     $.each(semester, function (key, value) {
-            //         $('#selectSemester').append($('<option>', {
-            //             value: value,
-            //             text: value
-            //         }));
-            //     })
-            // })
-            $.each(semesters, function (key, value) {
-                $('#selectSemester').append($('<option>', {
-                    value: value,
-                    text: value
-                }));
+            semesters.forEach(semester => {
+                $.each(semester, function (key, value) {
+                    $('#selectSemester').append($('<option>', {
+                        value: value,
+                        text: value
+                    }));
+                })
             })
+            // $.each(semesters, function (key, value) {
+            //     $('#selectSemester').append($('<option>', {
+            //         value: value,
+            //         text: value
+            //     }));
+            // })
         }
         fetchInfo()
     }, [userLineID])

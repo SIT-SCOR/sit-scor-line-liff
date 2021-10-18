@@ -92,7 +92,7 @@ export default function CheckScore(props) {
                         </div>
                     </div>
                     <div className="row p-3">
-                        <div className="col-7">
+                        {/* <div className="col-7">
                             <span style={{ color: "#9E9E9E" }}>
                                 Semester:
                             </span>
@@ -101,9 +101,19 @@ export default function CheckScore(props) {
                             <select id="selectSemester" className="selectSemester" onChange={(e) => onChangeSemester(e)} width="100%">
                                 <option>Semester...</option>
                             </select>
+                        </div> */}
+                        <div className="col-6">
+                            <select id="selectSemester" className="selectSemester" onChange={(e) => onChangeSemester(e)} width="100%">
+                                <option>Semester...</option>
+                            </select>
+                        </div>
+                        <div className="col-6">
+                            <select id="selectSubject" className="selectSubject" onChange={(e) => onChangeSubject(e)} width="100%">
+                                <option>Subject...</option>
+                            </select>
                         </div>
                     </div>
-                    <div className="row p-3">
+                    {/* <div className="row p-3">
                         <div className="col-7">
                             <span style={{ color: "#9E9E9E" }}>
                                 Subject:
@@ -114,7 +124,7 @@ export default function CheckScore(props) {
                                 <option>Subject...</option>
                             </select>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="row p-3">
                         <div className="col-12">
                             <input className="form-control" placeholder="Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />

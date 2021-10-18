@@ -14,6 +14,7 @@
 }
 
 .App-header {
+  background-image: url('./images/lineliff.jpg');
   background-color: #A7C5EB;
   min-height: 89vh;
   max-height: 100vh;
@@ -34,6 +35,14 @@
   background-color: #FFFFFF;
   min-height: 89vh;
   max-height: 100vh;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Editinfo-header {
+  background-color: #FFFFFF;
+  min-height: 76vh;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;

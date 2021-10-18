@@ -32,7 +32,7 @@ export default function EditInfo(props) {
             setPassword(info.data.password)
         }
         fetchInfo()
-    })
+    }, [userLineID])
 
     const homepage = () => {
         history.push("/")

@@ -42,10 +42,12 @@ export default function CheckScore(props) {
                 //     }
             })
             console.log(result)
-            // setScores(scores)
+            setScores(result)
         }
         fetchScore()
     }, [studentid, semester, subjectid, password, scores])
+
+console.log(scores)
 
     return (
         <div style={{ color: '#000000' }}>

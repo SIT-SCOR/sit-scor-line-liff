@@ -29,7 +29,7 @@ export default function Homepage() {
                     let checkRegister = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/checkregister/${uid}`)
                     setAlreadyRegister(checkRegister.data.alreadyHaved)
                 } else {
-                    liff.login()
+                    liff.login({ redirectUrl: "https://sit-scor.github.io/sit-scor-line-liff/"})
                 }
             });
         }

@@ -3,6 +3,7 @@ import { useHistory } from 'react-router'
 import Logo from '../images/Logo.png'
 import axios from 'axios';
 import $ from 'jquery'
+import { Link } from 'react-router-dom';
 
 export default function CheckScore(props) {
 
@@ -32,12 +33,6 @@ export default function CheckScore(props) {
         }
         fetchInfo()
     }, [userLineID])
-
-    const checkScore = (e) => {
-        e.preventDefault()
-
-
-    }
 
     const homepage = () => {
         history.push("/")
@@ -110,7 +105,19 @@ export default function CheckScore(props) {
                     </div>
                     <div className="row p-2 d-flex justify-content-center">
                         <div className="col-4">
-                            <button className="btn" onClick={(e) => checkScore(e)} style={{ fontWeight: 'bold', color: '#FFFFFF', backgroundColor: '#91E45E', width: '100%' }}>Check</button>
+                            <Link to={{
+                                pathname: '/CheckScoreResult',
+                                state: {
+                                    userLineID: userLineID,
+                                    studentid: studentID,
+                                    semester: semester,
+                                    subjectid: subject,
+                                    password: password,
+                                    fetchPassword: fetchPassword
+                                }
+                            }}>
+                                <button className="btn" style={{ fontWeight: 'bold', color: '#FFFFFF', backgroundColor: '#91E45E', width: '100%' }}>Check</button>
+                            </Link>
                         </div>
                     </div>
                     <div className="row p-2 d-flex justify-content-center">

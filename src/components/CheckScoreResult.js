@@ -19,14 +19,14 @@ export default function CheckScore(props) {
             let arrayActivity = activities.data
             console.log(arrayActivity)
             arrayActivity.forEach((activity) => {
-                console.log(activity.activityid)
-            //     if (activity.activitytype === "Individual") {
-            //         const fetchIndividual = async () => {
-            //             let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
-            //             scores.push(score.data)
-            //         }
-            //         fetchIndividual()
-            //     }
+                // console.log(activity.activityid)
+                if (activity.activitytype === "Individual") {
+                    const fetchIndividual = async () => {
+                        let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
+                        scores.push(score.data)
+                    }
+                    fetchIndividual()
+                }
             //     if (activity.activitytype === "Group") {
             //         const fetchGroup = async () => {
             //             let groups = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/groupid/reads/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
@@ -45,7 +45,7 @@ export default function CheckScore(props) {
             })
         }
         fetchScore()
-    }, [studentid, semester, subjectid, password])
+    }, [studentid, semester, subjectid, password, scores])
 
     return (
         <div>

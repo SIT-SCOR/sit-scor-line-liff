@@ -23,31 +23,22 @@ export default function CheckScore(props) {
                     let scoreResult = score.data
                     console.log(scoreResult)
                     result.push(scoreResult)
-                    // scores.push(scoreResult)
                 }
-                //     if (activity.activitytype === "Group") {
-                //         const fetchGroup = async () => {
-                //             let groups = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/groupid/reads/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
-                //             let arrayGroups = Array(groups.data)
-                //             console.log(arrayGroups)
-                //             arrayGroups.forEach((group) => {
-                //                 const fetchScore2 = async () => {
-                //                     let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/group/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${group.id}`)
-                //                     scores.push(score.data)
-                //                 }
-                //                 fetchScore2()
-                //             })
-                //         }
-                //         fetchGroup()
-                //     }
+                if (activity.activitytype === "Group") {
+                    let groups = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/groupid/reads/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
+                    let arrayGroups = groups.data
+                    arrayGroups.forEach(async (group) => {
+                        let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/group/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${group.id}`)
+                        let scoreResult = score.data
+                        result.push(scoreResult)
+                    })
+                }
             })
             console.log(result)
             setScores(result)
         }
         fetchScore()
     }, [studentid, semester, subjectid, password, scores])
-
-console.log(scores)
 
     return (
         <div style={{ color: '#000000' }}>

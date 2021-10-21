@@ -15,6 +15,7 @@ export default function CheckScore(props) {
             let subject = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/subject/reads/${studentid}/${semester}/${subjectid}/${password}`)
             let activities = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/activity/reads/${semester}/${subject.data.id}/${subject.data.sectionid}`)
             let arrayActivity = Array(activities.data)
+            console.log(arrayActivity)
             arrayActivity.forEach((activity) => {
                 if (activity.activitytype === "Individual") {
                     const fetchIndividual = async () => {
@@ -27,6 +28,7 @@ export default function CheckScore(props) {
                     const fetchGroup = async () => {
                         let groups = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/groupid/reads/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
                         let arrayGroups = Array(groups.data)
+                        console.log(arrayGroups)
                         arrayGroups.forEach((group) => {
                             const fetchScore2 = async () => {
                                 let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/group/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${group.id}`)

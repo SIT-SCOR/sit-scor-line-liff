@@ -21,7 +21,6 @@ export default function CheckScore(props) {
                 if (activity.activitytype === "Individual") {
                     let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
                     let scoreResult = score.data
-                    console.log(scoreResult)
                     result.push(scoreResult)
                 }
                 if (activity.activitytype === "Group") {
@@ -30,17 +29,12 @@ export default function CheckScore(props) {
                     arrayGroups.forEach(async (group) => {
                         let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/group/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${group.id}`)
                         let scoreResult = score.data
-                        console.log(scoreResult)
                         if (scoreResult !== "") {
                             result.push(scoreResult)
                         }
-                        // if (scoreResult !== "") {
-                        // result.push(scoreResult)
-                        // }
                     })
                 }
             })
-            console.log(result)
             setScores(result)
         }
         fetchScore()

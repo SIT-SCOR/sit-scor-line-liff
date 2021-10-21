@@ -8,7 +8,6 @@ export default function CheckScore(props) {
     const semester = props.location.state.semester;
     const subjectid = props.location.state.subjectid;
     const password = props.location.state.password;
-    const fetchPassword = props.location.state.fetchPassword;
     const [scores, setScores] = useState([])
 
     useEffect(() => {
@@ -50,7 +49,6 @@ export default function CheckScore(props) {
             {semester}<br />
             {subjectid}<br />
             {password}<br />
-            {fetchPassword}<br />
             {scores}
         </div>
     )

@@ -19,14 +19,18 @@ export default function Homepage() {
 
     useEffect(() => {
         const getProfile = () => {
-            liff.init(async () => {
-                let getProfile = await liff.getProfile();
-                setName(getProfile.displayName);
-                setUserLineID(getProfile.userId);
-                setPictureUrl(getProfile.pictureUrl);
-                let uid = getProfile.userId;
-                let checkRegister = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/checkregister/${uid}`)
-                setAlreadyRegister(checkRegister.data.alreadyHaved)
+            liff.init({ liffId: "1655669621-oYVQEDKQ" }, async () => {
+                if (liff.isLoggedIn()) {
+                    let getProfile = await liff.getProfile();
+                    setName(getProfile.displayName);
+                    setUserLineID(getProfile.userId);
+                    setPictureUrl(getProfile.pictureUrl);
+                    let uid = getProfile.userId;
+                    let checkRegister = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/checkregister/${uid}`)
+                    setAlreadyRegister(checkRegister.data.alreadyHaved)
+                } else {
+                    liff.login()
+                }
             });
         }
         getProfile()

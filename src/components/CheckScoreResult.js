@@ -8,21 +8,22 @@ export default function CheckScore(props) {
     const semester = props.location.state.semester;
     const subjectid = props.location.state.subjectid;
     const password = props.location.state.password;
-    const [scores, setScores] = useState("")
+    const [scores, setScores] = useState([])
 
     useEffect(() => {
         const fetchScore = async () => {
             let subject = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/subject/reads/${studentid}/${semester}/${subjectid}/${password}`)
             let activities = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/activity/reads/${semester}/${subject.data.id}/${subject.data.sectionid}`)
             let arrayActivity = activities.data
-            let scores = [];
+            // let scores = [];
             await arrayActivity.forEach(async (activity) => {
                 console.log(activity.activityid)
                 if (activity.activitytype === "Individual") {
                     let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
-                    console.log(score.data)
                     let scoreResult = score.data
+                    console.log(scoreResult)
                     scores.push(scoreResult)
+                    // scores.push(scoreResult)
                 }
                 //     if (activity.activitytype === "Group") {
                 //         const fetchGroup = async () => {
@@ -41,7 +42,7 @@ export default function CheckScore(props) {
                 //     }
             })
             // console.log(scores)
-            setScores(scores)
+            // setScores(scores)
         }
         fetchScore()
     }, [studentid, semester, subjectid, password])

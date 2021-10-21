@@ -16,31 +16,31 @@ export default function CheckScore(props) {
             let activities = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/activity/reads/${semester}/${subject.data.id}/${subject.data.sectionid}`)
             let arrayActivity = activities.data
             let scores = [];
-            arrayActivity.forEach((activity) => {
+            arrayActivity.forEach(async (activity) => {
                 console.log(activity.activityid)
                 if (activity.activitytype === "Individual") {
-                    const fetchIndividual = async () => {
-                        let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
-                        console.log(score.data)
-                        scores.push(score.data)
-                    }
-                    fetchIndividual()
+                    // const fetchIndividual = async () => {
+                    let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
+                    console.log(score.data)
+                    scores.push(score.data)
+                    // }
+                    // fetchIndividual()
                 }
-            //     if (activity.activitytype === "Group") {
-            //         const fetchGroup = async () => {
-            //             let groups = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/groupid/reads/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
-            //             let arrayGroups = Array(groups.data)
-            //             console.log(arrayGroups)
-            //             arrayGroups.forEach((group) => {
-            //                 const fetchScore2 = async () => {
-            //                     let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/group/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${group.id}`)
-            //                     scores.push(score.data)
-            //                 }
-            //                 fetchScore2()
-            //             })
-            //         }
-            //         fetchGroup()
-            //     }
+                //     if (activity.activitytype === "Group") {
+                //         const fetchGroup = async () => {
+                //             let groups = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/groupid/reads/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
+                //             let arrayGroups = Array(groups.data)
+                //             console.log(arrayGroups)
+                //             arrayGroups.forEach((group) => {
+                //                 const fetchScore2 = async () => {
+                //                     let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/group/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${group.id}`)
+                //                     scores.push(score.data)
+                //                 }
+                //                 fetchScore2()
+                //             })
+                //         }
+                //         fetchGroup()
+                //     }
             })
             setScores(scores)
         }
@@ -50,13 +50,13 @@ export default function CheckScore(props) {
     console.log(scores)
 
     return (
-        <div>
-            {userLineID}<br />
-            {studentid}<br />
-            {semester}<br />
-            {subjectid}<br />
-            {password}<br />
-            {scores}
+        <div style={{ color: '#000000' }}>
+            Line ID: {userLineID}<br />
+            Student ID: {studentid}<br />
+            Semester: {semester}<br />
+            Subject ID: {subjectid}<br />
+            Password: {password}<br />
+            Scores: {scores}
         </div>
     )
 }

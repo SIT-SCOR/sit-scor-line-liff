@@ -98,7 +98,7 @@ export default function CheckScore(props) {
                     </div>
                     <div className="row p-3">
                         <div className="col-12">
-                            <input className="form-control" placeholder="Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <input type="password" className="form-control" placeholder="Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                         </div>
                     </div>
                     <div className="row p-2 d-flex justify-content-center">

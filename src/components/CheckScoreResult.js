@@ -13,13 +13,11 @@ export default function CheckScore(props) {
     useEffect(() => {
         const fetchScore = async () => {
             let subject = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/subject/reads/${studentid}/${semester}/${subjectid}/${password}`)
-            console.log(subject.data)
             let activities = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/activity/reads/${semester}/${subject.data.id}/${subject.data.sectionid}`)
-            console.log(activities.data)
             let arrayActivity = activities.data
-            console.log(arrayActivity)
+            let scores = [];
             arrayActivity.forEach((activity) => {
-                // console.log(activity.activityid)
+                console.log(activity.activityid)
                 if (activity.activitytype === "Individual") {
                     const fetchIndividual = async () => {
                         let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
@@ -43,9 +41,10 @@ export default function CheckScore(props) {
             //         fetchGroup()
             //     }
             })
+            setScores(scores)
         }
         fetchScore()
-    }, [studentid, semester, subjectid, password, scores])
+    }, [studentid, semester, subjectid, password])
 
     return (
         <div>

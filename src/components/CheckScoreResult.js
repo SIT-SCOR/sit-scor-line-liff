@@ -38,7 +38,7 @@ export default function CheckScore(props) {
             setScores(result)
         }
         fetchScore()
-    }, [studentid, semester, subjectid, password, scores])
+    }, [studentid, semester, subjectid, password])
 
     return (
         <div style={{ color: '#000000' }}>

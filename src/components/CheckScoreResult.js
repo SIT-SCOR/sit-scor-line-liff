@@ -16,7 +16,7 @@ export default function CheckScore(props) {
             console.log(subject.data)
             let activities = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/activity/reads/${semester}/${subject.data.id}/${subject.data.sectionid}`)
             console.log(activities.data)
-            let arrayActivity = Array(activities.data)
+            let arrayActivity = activities.data
             console.log(arrayActivity)
             arrayActivity.forEach((activity) => {
                 console.log(activity.activityid)

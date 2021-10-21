@@ -18,7 +18,8 @@ export default function CheckScore(props) {
             console.log(activities.data)
             let arrayActivity = Array(activities.data)
             console.log(arrayActivity)
-            // arrayActivity.forEach((activity) => {
+            arrayActivity.forEach((activity) => {
+                console.log(activity.activityid)
             //     if (activity.activitytype === "Individual") {
             //         const fetchIndividual = async () => {
             //             let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
@@ -41,7 +42,7 @@ export default function CheckScore(props) {
             //         }
             //         fetchGroup()
             //     }
-            // })
+            })
         }
         fetchScore()
     }, [studentid, semester, subjectid, password])

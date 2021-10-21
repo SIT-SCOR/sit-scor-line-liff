@@ -21,7 +21,8 @@ export default function CheckScore(props) {
                 if (activity.activitytype === "Individual") {
                     let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
                     console.log(score.data)
-                    scores.push(score.data)
+                    let scoreResult = score.data
+                    scores.push(scoreResult)
                 }
                 //     if (activity.activitytype === "Group") {
                 //         const fetchGroup = async () => {

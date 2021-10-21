@@ -15,14 +15,14 @@ export default function CheckScore(props) {
             let subject = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/subject/reads/${studentid}/${semester}/${subjectid}/${password}`)
             let activities = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/activity/reads/${semester}/${subject.data.id}/${subject.data.sectionid}`)
             let arrayActivity = activities.data
-            // let scores = [];
-            await arrayActivity.forEach(async (activity) => {
+            let result = [];
+            arrayActivity.forEach(async (activity) => {
                 console.log(activity.activityid)
                 if (activity.activitytype === "Individual") {
                     let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
                     let scoreResult = score.data
                     console.log(scoreResult)
-                    scores.push(scoreResult)
+                    result.push(scoreResult)
                     // scores.push(scoreResult)
                 }
                 //     if (activity.activitytype === "Group") {
@@ -41,11 +41,11 @@ export default function CheckScore(props) {
                 //         fetchGroup()
                 //     }
             })
-            // console.log(scores)
+            console.log(result)
             // setScores(scores)
         }
         fetchScore()
-    }, [studentid, semester, subjectid, password])
+    }, [studentid, semester, subjectid, password, scores])
 
     return (
         <div style={{ color: '#000000' }}>

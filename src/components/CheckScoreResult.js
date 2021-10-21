@@ -30,7 +30,9 @@ export default function CheckScore(props) {
                     arrayGroups.forEach(async (group) => {
                         let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/group/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${group.id}`)
                         let scoreResult = score.data
-                        result.push(scoreResult)
+                        if (scoreResult !== "") {
+                            result.push(scoreResult)
+                        }
                     })
                 }
             })

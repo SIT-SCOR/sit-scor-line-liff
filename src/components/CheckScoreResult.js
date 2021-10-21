@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
 export default function CheckScore(props) {
-    
+
     const userLineID = props.location.state.userLineID;
     const studentid = props.location.state.studentid;
     const semester = props.location.state.semester;
@@ -18,21 +18,30 @@ export default function CheckScore(props) {
             let arrayActivity = Array(activities.data)
             arrayActivity.forEach((activity) => {
                 if (activity.activitytype === "Individual") {
-                    let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
-                    scores.push(score.data)
+                    const fetchIndividual = async () => {
+                        let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
+                        scores.push(score.data)
+                    }
+                    fetchIndividual()
                 }
                 if (activity.activitytype === "Group") {
-                    let groups = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/groupid/reads/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
-                    let arrayGroups = Array(groups.data)
-                    arrayGroups.forEach((group) => {
-                        let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/group/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${group.id}`)
-                        scores.push(score.data)
-                    })
+                    const fetchGroup = async () => {
+                        let groups = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/groupid/reads/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
+                        let arrayGroups = Array(groups.data)
+                        arrayGroups.forEach((group) => {
+                            const fetchScore2 = async () => {
+                                let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/group/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${group.id}`)
+                                scores.push(score.data)
+                            }
+                            fetchScore2()
+                        })
+                    }
+                    fetchGroup()
                 }
             })
         }
         fetchScore()
-    }, [studentid, semester, subjectid, password])
+    }, [studentid, semester, subjectid, password, scores])
 
     return (
         <div>

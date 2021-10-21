@@ -8,7 +8,7 @@ export default function CheckScore(props) {
     const semester = props.location.state.semester;
     const subjectid = props.location.state.subjectid;
     const password = props.location.state.password;
-    const [scores, setScores] = useState([])
+    const [scores, setScores] = useState("")
 
     useEffect(() => {
         const fetchScore = async () => {
@@ -19,12 +19,8 @@ export default function CheckScore(props) {
             arrayActivity.forEach(async (activity) => {
                 console.log(activity.activityid)
                 if (activity.activitytype === "Individual") {
-                    // const fetchIndividual = async () => {
                     let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
-                    console.log(score.data)
                     scores.push(score.data)
-                    // }
-                    // fetchIndividual()
                 }
                 //     if (activity.activitytype === "Group") {
                 //         const fetchGroup = async () => {
@@ -42,12 +38,11 @@ export default function CheckScore(props) {
                 //         fetchGroup()
                 //     }
             })
+            console.log(scores)
             setScores(scores)
         }
         fetchScore()
     }, [studentid, semester, subjectid, password])
-
-    console.log(scores)
 
     return (
         <div style={{ color: '#000000' }}>

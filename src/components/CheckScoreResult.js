@@ -28,14 +28,15 @@ export default function CheckScore(props) {
             setSubjectname(subject.data.subjectname)
             let activities = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/activity/reads/${semester}/${subject.data.id}/${subject.data.sectionid}`)
             let arrayActivity = activities.data
-            let result = [];
+            // let result = [];
             arrayActivity.forEach(async (activity) => {
                 console.log(activity.activityid)
                 if (activity.activitytype === "Individual") {
                     let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${activity.activityname}`)
                     let scoreResult = score.data
                     console.log(scoreResult)
-                    result.push(scoreResult)
+                    // result.push(scoreResult)
+                    scores.push(scoreResult)
                 }
                 if (activity.activitytype === "Group") {
                     let groups = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/groupid/reads/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
@@ -45,16 +46,17 @@ export default function CheckScore(props) {
                         let scoreResult = score.data
                         console.log(scoreResult)
                         if (scoreResult !== "") {
-                            result.push(scoreResult)
+                            // result.push(scoreResult)
+                            scores.push(scoreResult)
                         }
                     })
                 }
             })
-            console.log(result)
-            setScores(result)
+            // console.log(result)
+            // setScores(result)
         }
         fetchScore()
-    }, [studentid, semester, subjectid, password])
+    }, [studentid, semester, subjectid, password, scores])
 
     const homepage = () => {
         history.push("/")
@@ -93,18 +95,6 @@ export default function CheckScore(props) {
                                 <div className="col-12">
                                     <div className="card">
                                         <div className="card-body" style={{ backgroundColor: "#A7C5EB", borderRadius: "15px", minHeight: "50vh" }}>
-                                            {/* <Results scores={scores} /> */}
-                                            {/* {scores.map((score, index) => {
-                                                return (
-                                                    <div className="row">
-                                                        <div className="col-12">
-                                                            <span style={{ color: "#4E5FC6" }}>{score.activityid}</span><br />
-                                                            <span style={{ color: "#ffffff" }}>{score.activityname}</span><br />
-                                                            <span style={{ color: "#000000" }}>{score.score}</span>
-                                                        </div>
-                                                    </div>
-                                                )
-                                            })} */}
                                             <TableContainer component={Paper} >
                                                 <Table sx={{ minWidth: 300 }} aria-label="simple table">
                                                     <TableHead>

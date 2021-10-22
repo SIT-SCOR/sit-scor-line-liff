@@ -29,20 +29,20 @@ export default function CheckScore(props) {
             let activities = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/activity/reads/${semester}/${subject.data.id}/${subject.data.sectionid}`)
             let arrayActivity = activities.data
             // let result = [];
-            await arrayActivity.forEach(async (activity) => {
+            await arrayActivity.forEach( (activity) => {
                 console.log(activity.activityid)
                 if (activity.activitytype === "Individual") {
-                    let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${activity.activityname}`)
+                    let score =  axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${activity.activityname}`)
                     let scoreResult = score.data
                     console.log(scoreResult)
                     // result.push(scoreResult)
                     scores.push(scoreResult)
                 }
                 if (activity.activitytype === "Group") {
-                    let groups = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/groupid/reads/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
+                    let groups =  axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/groupid/reads/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
                     let arrayGroups = groups.data
                     arrayGroups.forEach(async (group) => {
-                        let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/group/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${activity.activityname}/${group.id}`)
+                        let score =  axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/group/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${activity.activityname}/${group.id}`)
                         let scoreResult = score.data
                         console.log(scoreResult)
                         if (scoreResult !== "") {

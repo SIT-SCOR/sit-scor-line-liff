@@ -53,6 +53,8 @@ export default function CheckScore(props) {
         history.push("/")
     }
 
+    console.log(scores)
+
     return (
         <div className="App">
             <header className="CheckScore-header">

@@ -86,12 +86,23 @@ export default function CheckScore(props) {
                                 <div className="col-12">
                                     <div className="card">
                                         <div className="card-body" style={{ backgroundColor: "#A7C5EB", borderRadius: "15px", minHeight: "50vh" }}>
-                                            <Results scores={scores} />
+                                            {/* <Results scores={scores} /> */}
+                                            {scores.map((score, index) => {
+                                                return (
+                                                    <div className="row">
+                                                        <div className="col-12">
+                                                            <span style={{ color: "#4E5FC6" }}>{score.activityid}</span><br />
+                                                            <span style={{ color: "#ffffff" }}>{score.activityname}</span><br />
+                                                            <span style={{ color: "#000000" }}>{score.score}</span>
+                                                        </div>
+                                                    </div>
+                                                )
+                                            })}
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="row" style={{marginTop: "3vh"}}>
+                            <div className="row" style={{ marginTop: "3vh" }}>
                                 <div className="col-12">
                                     <button className="btn" onClick={homepage} style={{ color: '#FFFFFF', backgroundColor: '#5C7AE2', fontWeight: 'bold' }}>Home</button>
                                 </div>

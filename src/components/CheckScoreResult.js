@@ -96,13 +96,16 @@ export default function CheckScore(props) {
                                     <div className="card">
                                         <div className="card-body" style={{ backgroundColor: "#A7C5EB", borderRadius: "15px", minHeight: "50vh" }}>
                                             <MaterialTable
-                                                title="Check Score"
                                                 columns={[
                                                     { title: 'Activity ID', field: 'activityid' },
                                                     { title: 'Activity Name', field: 'activityname' },
                                                     { title: 'Score', field: 'score' }
                                                 ]}
                                                 data={scores}
+                                                options={{
+                                                    showTitle: false,
+                                                    search: false
+                                                }}
                                             />
                                         </div>
                                     </div>

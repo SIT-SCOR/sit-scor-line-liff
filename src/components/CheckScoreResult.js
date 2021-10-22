@@ -50,9 +50,9 @@ export default function CheckScore(props) {
                             </div>
                             <div className="row">
                                 <div className="col-12">
-                                    <div className="card" style={{ borderRadius: "15px" }}>
+                                    <div className="card" style={{ borderRadius: "30px" }}>
                                         <div className="card-body" style={{ borderRadius: "30px", border: "2px solid #5C7AE2", backgroundColor: "#A7C5EB" }}>
-                                            <span style={{ color: "#ffffff" }}>
+                                            <span style={{ color: "#ffffff", fontWeight: 'bold' }}>
                                                 {subjectid} {subjectname}
                                             </span>
                                         </div>

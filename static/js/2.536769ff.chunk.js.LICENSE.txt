@@ -29,6 +29,12 @@ object-assign
  * Date: 2021-03-02T17:08Z
  */
 
+/** @license MUI v5.0.1
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 /** @license React v0.20.2
  * scheduler.production.min.js
  *

@@ -50,7 +50,7 @@ export default function CheckScore(props) {
                             </div>
                             <div className="row">
                                 <div className="col-12">
-                                    <div className="card">
+                                    <div className="card" style={{ borderRadius: "15px" }}>
                                         <div className="card-body" style={{ borderRadius: "30px", border: "2px solid #5C7AE2", backgroundColor: "#A7C5EB" }}>
                                             <span style={{ color: "#ffffff" }}>
                                                 {subjectid} {subjectname}
@@ -61,7 +61,7 @@ export default function CheckScore(props) {
                             </div>
                             <div className="row" style={{ marginTop: "2vh" }}>
                                 <div className="col-12">
-                                    <div className="card">
+                                    <div className="card" style={{ borderRadius: "15px" }}>
                                         <div className="card-body" style={{ backgroundColor: "#A7C5EB", borderRadius: "15px", minHeight: "50vh" }}>
                                             {/* <MaterialTable
                                                 columns={[

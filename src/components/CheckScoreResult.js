@@ -3,13 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router';
 import Logo from '../images/Logo.png'
 import Results from './Results';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import MaterialTable from 'material-table'
 
 export default function CheckScore(props) {
 
@@ -104,29 +98,14 @@ export default function CheckScore(props) {
                                 <div className="col-12">
                                     <div className="card">
                                         <div className="card-body" style={{ backgroundColor: "#A7C5EB", borderRadius: "15px", minHeight: "50vh" }}>
-                                            <TableContainer component={Paper} >
-                                                <Table sx={{ minWidth: 300 }} aria-label="simple table">
-                                                    <TableHead>
-                                                        <TableRow>
-                                                            <TableCell align="right">Activity ID</TableCell>
-                                                            <TableCell align="right">Activity Name</TableCell>
-                                                            <TableCell align="right">Score</TableCell>
-                                                        </TableRow>
-                                                    </TableHead>
-                                                    <TableBody>
-                                                        {scores.map((score, index) => (
-                                                            <TableRow
-                                                                key={score.activityname}
-                                                            // sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                                            >
-                                                                <TableCell align="right">{score.activityid}</TableCell>
-                                                                <TableCell align="right">{score.activityname}</TableCell>
-                                                                <TableCell align="right">{score.score}</TableCell>
-                                                            </TableRow>
-                                                        ))}
-                                                    </TableBody>
-                                                </Table>
-                                            </TableContainer>
+                                            <MaterialTable
+                                                columns={[
+                                                    { title: 'Activity ID', field: 'activityid'},
+                                                    { title: 'Activity Name', field: 'activityname'},
+                                                    { title: 'Score', field: 'score'}
+                                                ]}
+                                                data={scores}
+                                            />
                                         </div>
                                     </div>
                                 </div>

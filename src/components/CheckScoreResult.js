@@ -1,8 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router';
+import Logo from '../images/Logo.png'
 
 export default function CheckScore(props) {
 
+    const history = useHistory()
     const userLineID = props.location.state.userLineID;
     const studentid = props.location.state.studentid;
     const semester = props.location.state.semester;
@@ -45,14 +48,69 @@ export default function CheckScore(props) {
         fetchScore()
     }, [studentid, semester, subjectid, password])
 
+    const homepage = () => {
+        history.push("/")
+    }
+
     return (
-        <div style={{ color: '#000000' }}>
-            Line ID: {userLineID}<br />
-            Student ID: {studentid}<br />
-            Semester: {semester}<br />
-            Subject ID: {subjectid}<br />
-            Password: {password}<br />
-            Scores: {scores}
+        <div className="App">
+            <header className="CheckScore-header">
+                <div className="container p-4">
+                    <div className="card">
+                        <div className="card-body" style={{ minHeight: "94vh" }}>
+                            <div className="row">
+                                <div className="col-6">
+                                    <span style={{ fontWeight: "bold", fontSize: "45px" }}>Check</span>
+                                    <br />
+                                    <span style={{ fontWeight: "bold", fontSize: "45px", color: "#5C7AE2" }}>Score</span>
+                                </div>
+                                <div className="col-6">
+                                    <img src={Logo} alt="logo" width="110%" />
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-12">
+                                    <div className="card">
+                                        <div className="card-body" style={{ borderRadius: "30px", border: "2px solid #5C7AE2", backgroundColor: "#A7C5EB" }}>
+                                            <span style={{ color: "#ffffff" }}>
+                                                {subjectid} {subjectname}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row" style={{ marginTop: "2vh" }}>
+                                <div className="col-12">
+                                    <div className="card">
+                                        <div className="card-body" style={{ backgroundColor: "#A7C5EB", borderRadius: "15px", minHeight: "50vh" }}>
+                                            {scores.forEach(score => {
+                                                return (
+                                                    <div>
+                                                        <span style={{fontWeight: "bold", color: "#4E5FC6"}}>
+                                                            {score.activityid}
+                                                        </span><br />
+                                                        <span style={{fontWeight: "bold", color: "#ffffff"}}>
+                                                            {score.activityname}
+                                                        </span><br />
+                                                        <span style={{fontWeight: "bold", color: "#000000"}}>
+                                                            {score.score}
+                                                        </span>
+                                                    </div>
+                                                )
+                                            })}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row" style={{marginTop: "3vh"}}>
+                                <div className="col-12">
+                                    <button className="btn" onClick={homepage} style={{ color: '#FFFFFF', backgroundColor: '#5C7AE2', fontWeight: 'bold' }}>Home</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
         </div>
     )
 }

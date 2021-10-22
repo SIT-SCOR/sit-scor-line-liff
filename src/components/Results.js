@@ -17,5 +17,13 @@ export default function Results(props) {
                 )
             })
         )
+    } else {
+        return (
+            <div className="row">
+                <div className="col-12">
+
+                </div>
+            </div>
+        )
     }
 }

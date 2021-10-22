@@ -22,7 +22,7 @@ export default function CheckScore(props) {
             setSubjectname(subject.data.subjectname)
             let activities = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/activity/reads/${semester}/${subject.data.id}/${subject.data.sectionid}`)
             let arrayActivity = activities.data
-            // let result = [];
+            let result = [];
             await arrayActivity.forEach((activity) => {
                 console.log(activity.activityid)
                 if (activity.activitytype === "Individual") {
@@ -30,8 +30,8 @@ export default function CheckScore(props) {
                         let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${activity.activityname}`)
                         let scoreResult = score.data
                         console.log(scoreResult)
-                        // result.push(scoreResult)
-                        scores.push(scoreResult)
+                        result.push(scoreResult)
+                        // scores.push(scoreResult)
                     }
                     fetchScore()
                 }
@@ -45,8 +45,8 @@ export default function CheckScore(props) {
                                 let scoreResult = score.data
                                 console.log(scoreResult)
                                 if (scoreResult !== "") {
-                                    // result.push(scoreResult)
-                                    scores.push(scoreResult)
+                                    result.push(scoreResult)
+                                    // scores.push(scoreResult)
                                 }
                             }
                             fetchScore()
@@ -56,10 +56,10 @@ export default function CheckScore(props) {
                 }
             })
             // console.log(result)
-            // setScores(result)
+            setScores(result)
         }
         fetchScore()
-    }, [studentid, semester, subjectid, password, scores])
+    }, [studentid, semester, subjectid, password])
 
     const homepage = () => {
         history.push("/")

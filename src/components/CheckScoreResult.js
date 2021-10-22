@@ -62,7 +62,9 @@ export default function CheckScore(props) {
         history.push("/")
     }
 
-    console.log(scores)
+    if (scores.length > 0) {
+        console.log(scores)
+    }
 
     return (
         <div className="App">
@@ -105,10 +107,10 @@ export default function CheckScore(props) {
                                                         </TableRow>
                                                     </TableHead>
                                                     <TableBody>
-                                                        {scores.map((score) => (
+                                                        {scores.map((score, index) => (
                                                             <TableRow
                                                                 key={score.activityname}
-                                                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                                                // sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                                             >
                                                                 <TableCell align="right">{score.activityid}</TableCell>
                                                                 <TableCell align="right">{score.activityname}</TableCell>

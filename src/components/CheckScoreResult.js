@@ -11,7 +11,7 @@ export default function CheckScore(props) {
     const semester = props.location.state.semester;
     const subjectid = props.location.state.subjectid;
     const password = props.location.state.password;
-    const [scores, setScores] = useState([])
+    const [scores, setScores] = useState("")
     const [subjectname, setSubjectname] = useState("")
 
     useEffect(() => {

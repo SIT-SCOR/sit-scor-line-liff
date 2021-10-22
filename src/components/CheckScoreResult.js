@@ -73,7 +73,7 @@ export default function CheckScore(props) {
                                                 options={{
                                                     showTitle: false,
                                                     search: false,
-                                                    header: false
+                                                    grouping: false
                                                 }}
                                             /> */}
                                             <Results scores={scores} />

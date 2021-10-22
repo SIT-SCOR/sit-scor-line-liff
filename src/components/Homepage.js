@@ -139,25 +139,7 @@ export default function Homepage() {
                 {
                     alreadyRegister === false
                         ?
-                        <div className="container-fluid p-3">
-                            <div className="row">
-                                <div className="col-12 col-sm-12">
-                                    <Link to={{
-                                        pathname: '/CheckScore',
-                                        state: {
-                                            userLineID: userLineID,
-                                            name: name,
-                                            pictureUrl: pictureUrl
-                                        }
-                                    }}>
-                                        <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
-                                            <img src={Scoreboard} alt="Feedback" width="37%" />
-                                            <p>Check Score</p>
-                                        </button>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
+                        null
                         :
                         <div className="container-fluid p-3">
                             <div className="row">

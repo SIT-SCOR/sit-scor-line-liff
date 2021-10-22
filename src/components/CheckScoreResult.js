@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router';
 import Logo from '../images/Logo.png'
+import Results from './Results'
 import MaterialTable from 'material-table'
 
 export default function CheckScore(props) {
@@ -62,7 +63,7 @@ export default function CheckScore(props) {
                                 <div className="col-12">
                                     <div className="card">
                                         <div className="card-body" style={{ backgroundColor: "#A7C5EB", borderRadius: "15px", minHeight: "50vh" }}>
-                                            <MaterialTable
+                                            {/* <MaterialTable
                                                 columns={[
                                                     { title: 'Activity ID', field: 'activityid' },
                                                     { title: 'Activity Name', field: 'activityname' },
@@ -74,7 +75,8 @@ export default function CheckScore(props) {
                                                     search: false,
                                                     header: false
                                                 }}
-                                            />
+                                            /> */}
+                                            <Results scores={scores} />
                                         </div>
                                     </div>
                                 </div>

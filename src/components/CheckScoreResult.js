@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router';
 import Logo from '../images/Logo.png'
+import Results from './Results';
 
 export default function CheckScore(props) {
 
@@ -83,21 +84,7 @@ export default function CheckScore(props) {
                                 <div className="col-12">
                                     <div className="card">
                                         <div className="card-body" style={{ backgroundColor: "#A7C5EB", borderRadius: "15px", minHeight: "50vh" }}>
-                                            {scores.forEach(score => {
-                                                return (
-                                                    <div>
-                                                        <span style={{fontWeight: "bold", color: "#4E5FC6"}}>
-                                                            {score.activityid}
-                                                        </span><br />
-                                                        <span style={{fontWeight: "bold", color: "#ffffff"}}>
-                                                            {score.activityname}
-                                                        </span><br />
-                                                        <span style={{fontWeight: "bold", color: "#000000"}}>
-                                                            {score.score}
-                                                        </span>
-                                                    </div>
-                                                )
-                                            })}
+                                            <Results scores={scores} />
                                         </div>
                                     </div>
                                 </div>

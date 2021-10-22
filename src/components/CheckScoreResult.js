@@ -31,7 +31,6 @@ export default function CheckScore(props) {
                         let scoreResult = score.data
                         console.log(scoreResult)
                         result.push(scoreResult)
-                        // scores.push(scoreResult)
                     }
                     fetchScore()
                 }
@@ -46,7 +45,6 @@ export default function CheckScore(props) {
                                 console.log(scoreResult)
                                 if (scoreResult !== "") {
                                     result.push(scoreResult)
-                                    // scores.push(scoreResult)
                                 }
                             }
                             fetchScore()
@@ -55,7 +53,6 @@ export default function CheckScore(props) {
                     fetchGroup()
                 }
             })
-            // console.log(result)
             setScores(result)
         }
         fetchScore()
@@ -99,10 +96,11 @@ export default function CheckScore(props) {
                                     <div className="card">
                                         <div className="card-body" style={{ backgroundColor: "#A7C5EB", borderRadius: "15px", minHeight: "50vh" }}>
                                             <MaterialTable
+                                                title="Check Score"
                                                 columns={[
-                                                    { title: 'Activity ID', field: 'activityid'},
-                                                    { title: 'Activity Name', field: 'activityname'},
-                                                    { title: 'Score', field: 'score'}
+                                                    { title: 'Activity ID', field: 'activityid' },
+                                                    { title: 'Activity Name', field: 'activityname' },
+                                                    { title: 'Score', field: 'score' }
                                                 ]}
                                                 data={scores}
                                             />

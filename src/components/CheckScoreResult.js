@@ -29,27 +29,36 @@ export default function CheckScore(props) {
             let activities = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/activity/reads/${semester}/${subject.data.id}/${subject.data.sectionid}`)
             let arrayActivity = activities.data
             // let result = [];
-            await arrayActivity.forEach( (activity) => {
+            await arrayActivity.forEach((activity) => {
                 console.log(activity.activityid)
                 if (activity.activitytype === "Individual") {
-                    let score =  axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${activity.activityname}`)
-                    let scoreResult = score.data
-                    console.log(scoreResult)
-                    // result.push(scoreResult)
-                    scores.push(scoreResult)
-                }
-                if (activity.activitytype === "Group") {
-                    let groups =  axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/groupid/reads/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
-                    let arrayGroups = groups.data
-                    arrayGroups.forEach(async (group) => {
-                        let score =  axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/group/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${activity.activityname}/${group.id}`)
+                    const fetchScore = async () => {
+                        let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${activity.activityname}`)
                         let scoreResult = score.data
                         console.log(scoreResult)
-                        if (scoreResult !== "") {
-                            // result.push(scoreResult)
-                            scores.push(scoreResult)
-                        }
-                    })
+                        // result.push(scoreResult)
+                        scores.push(scoreResult)
+                    }
+                    fetchScore()
+                }
+                if (activity.activitytype === "Group") {
+                    const fetchGroup = async () => {
+                        let groups = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/groupid/reads/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
+                        let arrayGroups = groups.data
+                        arrayGroups.forEach((group) => {
+                            const fetchScore = async () => {
+                                let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/group/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${activity.activityname}/${group.id}`)
+                                let scoreResult = score.data
+                                console.log(scoreResult)
+                                if (scoreResult !== "") {
+                                    // result.push(scoreResult)
+                                    scores.push(scoreResult)
+                                }
+                            }
+                            fetchScore()
+                        })
+                    }
+                    fetchGroup()
                 }
             })
             // console.log(result)
@@ -62,9 +71,7 @@ export default function CheckScore(props) {
         history.push("/")
     }
 
-    if (scores.length > 0) {
-        console.log(scores)
-    }
+    console.log(scores)
 
     return (
         <div className="App">
@@ -110,7 +117,7 @@ export default function CheckScore(props) {
                                                         {scores.map((score, index) => (
                                                             <TableRow
                                                                 key={score.activityname}
-                                                                // sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                                            // sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                                             >
                                                                 <TableCell align="right">{score.activityid}</TableCell>
                                                                 <TableCell align="right">{score.activityname}</TableCell>

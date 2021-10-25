@@ -32,7 +32,7 @@ export default function CheckTasksResult(props) {
 
     return (
         <div className="App">
-            <header className="CheckScore-header">
+            <header className="CheckTasks-header">
                 <div className="container p-4">
                     <div className="card">
                         <div className="card-body" style={{ minHeight: "94vh" }}>
@@ -40,7 +40,7 @@ export default function CheckTasksResult(props) {
                                 <div className="col-6">
                                     <span style={{ fontWeight: "bold", fontSize: "45px" }}>Check</span>
                                     <br />
-                                    <span style={{ fontWeight: "bold", fontSize: "45px", color: "#5C7AE2" }}>Score</span>
+                                    <span style={{ fontWeight: "bold", fontSize: "45px", color: "#FFA78F" }}>Tasks</span>
                                 </div>
                                 <div className="col-6">
                                     <img src={Logo} alt="logo" width="110%" />
@@ -49,7 +49,7 @@ export default function CheckTasksResult(props) {
                             <div className="row">
                                 <div className="col-12">
                                     <div className="card" style={{ borderRadius: "30px" }}>
-                                        <div className="card-body" style={{ borderRadius: "30px", border: "2px solid #5C7AE2", backgroundColor: "#A7C5EB" }}>
+                                        <div className="card-body" style={{ borderRadius: "30px", border: "2px solid #FF7B0D", backgroundColor: "#FFA78F" }}>
                                             <span style={{ color: "#ffffff", fontWeight: 'bold' }}>
                                                 {subjectid} {subjectname}
                                             </span>
@@ -60,7 +60,7 @@ export default function CheckTasksResult(props) {
                             <div className="row" style={{ marginTop: "2vh" }}>
                                 <div className="col-12">
                                     <div className="card" style={{ borderRadius: "15px" }}>
-                                        <div className="card-body" style={{ backgroundColor: "#A7C5EB", borderRadius: "15px", minHeight: "50vh" }}>
+                                        <div className="card-body" style={{ backgroundColor: "#FFA78F", borderRadius: "15px", minHeight: "50vh" }}>
                                             <Tasks scores={scores} />
                                         </div>
                                     </div>

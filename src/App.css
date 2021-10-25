@@ -31,6 +31,14 @@
   color: black;
 }
 
+.CheckTasks-header {
+  background-color: #FFA78F;
+  min-height: 100vh;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
 .ConfirmFeedback-header {
   background-color: #A7C5EB;
   min-height: 100vh;

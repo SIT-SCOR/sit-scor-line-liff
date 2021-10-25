@@ -33,7 +33,7 @@ export default function Feedback(props) {
 
     return (
         <div className="App">
-            <div className="container background-header">
+            <div className="container-fluid background-header">
                 <div className="row">
                     <div className="col-12 col-sm-12">
                         <img src={Logo} alt="logo" width="144px" height="144px" />
@@ -93,6 +93,9 @@ export default function Feedback(props) {
                 </div>
                 <div className="container-fluid p-3">
                     <input type="submit" className="btn" onClick={(e) => sendFeedback(e)} style={{ backgroundColor: '#79D70F', color: '#FFFFFF', fontWeight: 'bold', fontSize: '18px' }} value="Send" />
+                </div>
+                <div className="container-fluid p-3">
+                    <button className="btn" onClick={homepage} style={{ color: '#FFFFFF', backgroundColor: '#5C7AE2', fontWeight: 'bold' }}>Home</button>
                 </div>
             </div>
         </div>

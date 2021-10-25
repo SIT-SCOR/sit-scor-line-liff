@@ -96,7 +96,7 @@ export default function EditInfo(props) {
 
     return (
         <div className="App">
-            <div className="container background-header">
+            <div className="container-fluid background-header">
                 <div className="row">
                     <div className="col-12 col-sm-12">
                         <img src={Logo} alt="logo" width="144px" height="144px" />

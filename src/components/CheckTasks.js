@@ -104,7 +104,7 @@ export default function CheckTasks(props) {
                     <div className="row p-2 d-flex justify-content-center">
                         <div className="col-4">
                             <Link to={{
-                                pathname: '/CheckTaskResult',
+                                pathname: '/CheckTasksResult',
                                 state: {
                                     studentid: studentID,
                                     semester: semester,

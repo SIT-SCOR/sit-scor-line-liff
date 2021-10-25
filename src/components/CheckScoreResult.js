@@ -3,12 +3,10 @@ import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router';
 import Logo from '../images/Logo.png'
 import Results from './Results'
-import MaterialTable from 'material-table'
 
-export default function CheckScore(props) {
+export default function CheckScoreResult(props) {
 
     const history = useHistory()
-    const userLineID = props.location.state.userLineID;
     const studentid = props.location.state.studentid;
     const semester = props.location.state.semester;
     const subjectid = props.location.state.subjectid;
@@ -63,19 +61,6 @@ export default function CheckScore(props) {
                                 <div className="col-12">
                                     <div className="card" style={{ borderRadius: "15px" }}>
                                         <div className="card-body" style={{ backgroundColor: "#A7C5EB", borderRadius: "15px", minHeight: "50vh" }}>
-                                            {/* <MaterialTable
-                                                columns={[
-                                                    { title: 'Activity ID', field: 'activityid' },
-                                                    { title: 'Activity Name', field: 'activityname' },
-                                                    { title: 'Score', field: 'score' }
-                                                ]}
-                                                data={scores}
-                                                options={{
-                                                    showTitle: false,
-                                                    search: false,
-                                                    grouping: false
-                                                }}
-                                            /> */}
                                             <Results scores={scores} />
                                         </div>
                                     </div>

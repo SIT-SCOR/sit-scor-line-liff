@@ -31,6 +31,10 @@ export default function Feedback(props) {
         }
     }
 
+    const homepage = () => {
+        history.push("/")
+    }
+
     return (
         <div className="App">
             <div className="container-fluid background-header">

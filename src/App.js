@@ -8,6 +8,8 @@ import ConfirmFeedback from './components/ConfirmFeedback';
 import ConfirmEdit from './components/ConfirmEdit'
 import CheckScore from './components/CheckScore'
 import CheckScoreResult from './components/CheckScoreResult'
+import CheckTasks from './components/CheckTasks'
+import CheckTasksResult from './components/CheckTasksResult'
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <Switch>
         <Route exact path="/CheckScore" component={CheckScore} />
         <Route exact path="/CheckScoreResult" component={CheckScoreResult} />
+        <Route exact path="/CheckTasks" component={CheckTasks} />
+        <Route exact path="/CheckTasksResult" component={CheckTasksResult} />
         <Route exact path="/ConfirmEdit" component={ConfirmEdit} />
         <Route exact path="/ConfirmFeedback" component={ConfirmFeedback} />
         <Route exact path="/EditInfo" component={EditInfo} />

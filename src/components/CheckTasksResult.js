@@ -68,7 +68,7 @@ export default function CheckTasksResult(props) {
                             </div>
                             <div className="row" style={{ marginTop: "3vh" }}>
                                 <div className="col-12">
-                                    <button className="btn" onClick={homepage} style={{ color: '#FFFFFF', backgroundColor: '#5C7AE2', fontWeight: 'bold' }}>Home</button>
+                                    <button className="btn" onClick={homepage} style={{ color: '#FFFFFF', backgroundColor: '#FFA78F', fontWeight: 'bold' }}>Home</button>
                                 </div>
                             </div>
                         </div>

@@ -79,8 +79,8 @@ export default function Homepage() {
                 <div className="container-fluid p-3">
                     <div className="row">
                         <div className="col-12 col-sm-12">
-                            {
-                                alreadyRegister === false
+                        {
+                                alreadyRegister === false && isVerify === false
                                     ?
                                     <Link to={{
                                         pathname: '/Register',
@@ -94,6 +94,28 @@ export default function Homepage() {
                                         </button>
                                     </Link>
                                     :
+                                    null
+                            }
+                            {
+                                alreadyRegister === true && isVerify === false
+                                    ?
+                                    <Link to={{
+                                        pathname: '/Verify',
+                                        state: {
+                                            userLineID: userLineID
+                                        }
+                                    }}>
+                                        <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
+                                            <img src={Register} alt="Register" width="37%" />
+                                            <p>Verify</p>
+                                        </button>
+                                    </Link>
+                                    :
+                                    null
+                            }
+                            {
+                                alreadyRegister === true && isVerify === true
+                                    ?
                                     <Link to={{
                                         pathname: '/EditInfo',
                                         state: {
@@ -105,6 +127,8 @@ export default function Homepage() {
                                             <p>Edit</p>
                                         </button>
                                     </Link>
+                                    :
+                                    null
                             }
                         </div>
                     </div>

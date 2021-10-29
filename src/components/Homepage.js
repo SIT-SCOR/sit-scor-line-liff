@@ -40,6 +40,9 @@ export default function Homepage() {
         getProfile()
     }, [])
 
+    console.log(alreadyRegister)
+    console.log(isVerify)
+
     return (
         <div className="App">
             <div className="container-fluid background-header">

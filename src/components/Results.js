@@ -7,11 +7,11 @@ export default function Results(props) {
         return (
             scores.map((score, index) => {
                 return (
-                    <div className="row" style={{marginBottom: "10px"}}>
-                        <div className="col-12" style={{textAlign: 'left', fontWeight: 'bold'}}>
-                            <span style={{color: "#4E5FC6"}}>{score.activityid}</span><br />
-                            <span style={{color: "#ffffff"}}>{score.activityname}</span><br />
-                            <span style={{color: "#000000"}}>Scores : {score.score}</span>
+                    <div className="row" style={{ marginBottom: "10px" }}>
+                        <div className="col-12" style={{ textAlign: 'left', fontWeight: 'bold' }}>
+                            <span style={{ color: "#4E5FC6" }}>{score.activityid}</span><br />
+                            <span style={{ color: "#ffffff" }}>{score.activityname}</span><br />
+                            <span style={{ color: "#000000" }}>Scores : {score.score}</span>
                         </div>
                     </div>
                 )

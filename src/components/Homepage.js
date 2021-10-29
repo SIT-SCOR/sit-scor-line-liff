@@ -40,19 +40,6 @@ export default function Homepage() {
         getProfile()
     }, [])
 
-    // const sendMessage = () => {
-    //     liff.sendMessages([{
-    //         type: 'text',
-    //         text: "Hi LIFF"
-    //     }]).then(() => {
-    //         liff.closeWindow();
-    //     });
-    // }
-
-    // const closeLIFF = () => {
-    //     liff.closeWindow();
-    // }
-
     return (
         <div className="App">
             <div className="container-fluid background-header">

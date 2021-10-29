@@ -150,12 +150,12 @@ export default function Homepage() {
                         </div>
                     </div>
                 </div>
-                {
-                    alreadyRegister === true && isVerify === true
-                        ?
-                        <div className="container-fluid p-3">
-                            <div className="row">
-                                <div className="col-12 col-sm-12">
+                <div className="container-fluid p-3">
+                    <div className="row">
+                        <div className="col-12 col-sm-12">
+                            {
+                                alreadyRegister === true && isVerify === true
+                                    ?
                                     <Link to={{
                                         pathname: '/CheckScore',
                                         state: {
@@ -169,18 +169,18 @@ export default function Homepage() {
                                             <p>Check Score</p>
                                         </button>
                                     </Link>
-                                </div>
-                            </div>
+                                    :
+                                    null
+                            }
                         </div>
-                        :
-                        null
-                }
-                {
-                    alreadyRegister === true && isVerify === true
-                        ?
-                        <div className="container-fluid p-3">
-                            <div className="row">
-                                <div className="col-12 col-sm-12">
+                    </div>
+                </div>
+                <div className="container-fluid p-3">
+                    <div className="row">
+                        <div className="col-12 col-sm-12">
+                            {
+                                alreadyRegister === true && isVerify === true
+                                    ?
                                     <Link to={{
                                         pathname: '/CheckTasks',
                                         state: {
@@ -194,12 +194,12 @@ export default function Homepage() {
                                             <p>Check Task</p>
                                         </button>
                                     </Link>
-                                </div>
-                            </div>
+                                    :
+                                    null
+                            }
                         </div>
-                        :
-                        null
-                }
+                    </div>
+                </div>
             </header>
         </div>
     )

@@ -155,10 +155,8 @@ export default function Homepage() {
                     <div className="row">
                         <div className="col-12 col-sm-12">
                             {
-                                alreadyRegister === false
+                                alreadyRegister === true && isVerify === true
                                     ?
-                                    null
-                                    :
                                     <Link to={{
                                         pathname: '/CheckScore',
                                         state: {
@@ -172,6 +170,8 @@ export default function Homepage() {
                                             <p>Check Score</p>
                                         </button>
                                     </Link>
+                                    :
+                                    null
                             }
                         </div>
                     </div>
@@ -180,10 +180,8 @@ export default function Homepage() {
                     <div className="row">
                         <div className="col-12 col-sm-12">
                             {
-                                alreadyRegister === false
+                                alreadyRegister === true && isVerify === true
                                     ?
-                                    null
-                                    :
                                     <Link to={{
                                         pathname: '/CheckTasks',
                                         state: {
@@ -197,6 +195,8 @@ export default function Homepage() {
                                             <p>Check Task</p>
                                         </button>
                                     </Link>
+                                    :
+                                    null
                             }
                         </div>
                     </div>

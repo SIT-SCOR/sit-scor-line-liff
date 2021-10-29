@@ -38,7 +38,7 @@ export default function Homepage() {
             });
         }
         getProfile()
-    }, [])
+    })
 
     console.log(alreadyRegister)
     console.log(isVerify)

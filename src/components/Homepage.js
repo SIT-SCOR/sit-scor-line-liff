@@ -30,6 +30,8 @@ export default function Homepage() {
                     let uid = getProfile.userId;
                     let checkRegister = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/checkregister/${uid}`)
                     setAlreadyRegister(checkRegister.data.alreadyHaved)
+                    let verify = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/read/${uid}`)
+                    setIsVerify(verify.data.isVerify)
                 } else {
                     liff.login({ redirectUrl: "https://sit-scor.github.io/sit-scor-line-liff/" })
                 }

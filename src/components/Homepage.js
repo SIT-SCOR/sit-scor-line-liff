@@ -34,7 +34,7 @@ export default function Homepage() {
                 }
             });
         }
-        const getCheckRegister = () => {
+        const getCheckRegister = async () => {
             let checkRegister = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/checkregister/${uid}`)
             setAlreadyRegister(checkRegister.data.alreadyHaved)
             let verify = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/read/${uid}`)

@@ -53,7 +53,7 @@ export default function EditInfo(props) {
                         lastname: lastname,
                         faculty: faculty,
                         year: year,
-                        email: email,
+                        email: email.toLowerCase(),
                         line_id: lineID,
                         password: password
                     }
@@ -71,7 +71,7 @@ export default function EditInfo(props) {
                         lastname: lastname,
                         faculty: faculty,
                         year: year,
-                        email: email,
+                        email: email.toLowerCase(),
                         line_id: userLineID,
                         password: password
                     }

@@ -38,7 +38,7 @@ export default function Register(props) {
                     lastname: lastname,
                     faculty: faculty,
                     year: year,
-                    email: email,
+                    email: email.toLowerCase(),
                     line_id: userLineID,
                     password: password
                 }
@@ -49,7 +49,7 @@ export default function Register(props) {
                     })
             } else {
                 let create = {
-                    email: email,
+                    email: email.toLowerCase(),
                     faculty: faculty,
                     firstname: firstname,
                     lastname: lastname,

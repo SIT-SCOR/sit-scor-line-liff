@@ -5,6 +5,7 @@ import userLoad from '../images/user-load.png'
 import Register from '../images/register.png'
 import Feedback from '../images/feedback.png'
 import Scoreboard from '../images/scoreboard.png'
+import Tasks from '../images/check_task.png'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 

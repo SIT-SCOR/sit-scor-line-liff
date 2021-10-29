@@ -6,7 +6,7 @@ import Results from './Results'
 
 export default function CheckScoreResult(props) {
 
-    const history = useHistory()
+    const history = useHistory();
     const studentid = props.location.state.studentid;
     const semester = props.location.state.semester;
     const subjectid = props.location.state.subjectid;

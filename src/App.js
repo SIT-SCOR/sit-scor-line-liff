@@ -10,6 +10,8 @@ import CheckScore from './components/CheckScore'
 import CheckScoreResult from './components/CheckScoreResult'
 import CheckTasks from './components/CheckTasks'
 import CheckTasksResult from './components/CheckTasksResult'
+import Verify from './components/Verify'
+import ConfirmVerify from './components/ConfirmVerify';
 
 function App() {
   return (
@@ -21,9 +23,11 @@ function App() {
         <Route exact path="/CheckTasksResult" component={CheckTasksResult} />
         <Route exact path="/ConfirmEdit" component={ConfirmEdit} />
         <Route exact path="/ConfirmFeedback" component={ConfirmFeedback} />
+        <Route exact path="/ConfirmVerify" component={ConfirmVerify} />
         <Route exact path="/EditInfo" component={EditInfo} />
         <Route exact path="/Feedback" component={Feedback} />
         <Route exact path="/Register" component={Register} />
+        <Route exact path="/Verify" component={Verify} />
         <Route exact path="/" component={Homepage} />
       </Switch>
     </BrowserRouter>

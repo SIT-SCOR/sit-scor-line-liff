@@ -79,7 +79,7 @@ export default function Homepage() {
                 <div className="container-fluid p-3">
                     <div className="row">
                         <div className="col-12 col-sm-12">
-                        {
+                            {
                                 alreadyRegister === false && isVerify === false
                                     ?
                                     <Link to={{

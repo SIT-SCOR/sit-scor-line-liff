@@ -20,6 +20,7 @@ export default function Homepage() {
     const [isVerify, setIsVerify] = useState(Boolean)
 
     useEffect(() => {
+        let uid
         const getProfile = () => {
             liff.init({ liffId: "1655669621-oYVQEDKQ" }, async () => {
                 if (liff.isLoggedIn()) {
@@ -27,19 +28,22 @@ export default function Homepage() {
                     setName(getProfile.displayName);
                     setUserLineID(getProfile.userId);
                     setPictureUrl(getProfile.pictureUrl);
-                    let uid = getProfile.userId;
-                    let checkRegister = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/checkregister/${uid}`)
-                    setAlreadyRegister(checkRegister.data.alreadyHaved)
-                    let verify = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/read/${uid}`)
-                    setIsVerify(verify.data.isVerify)
+                    uid = getProfile.userId;
                 } else {
                     liff.login({ redirectUrl: "https://sit-scor.github.io/sit-scor-line-liff/" })
                 }
             });
+        }
+        const getCheckRegister = () => {
+            let checkRegister = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/checkregister/${uid}`)
+            setAlreadyRegister(checkRegister.data.alreadyHaved)
+            let verify = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/read/${uid}`)
+            setIsVerify(verify.data.isVerify)
             console.log(alreadyRegister)
             console.log(isVerify)
         }
         getProfile()
+        getCheckRegister()
     }, [])
 
     return (

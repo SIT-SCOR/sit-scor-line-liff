@@ -8,6 +8,7 @@ import ConfirmFeedback from './components/ConfirmFeedback';
 import ConfirmEdit from './components/ConfirmEdit'
 import CheckScore from './components/CheckScore'
 import CheckScoreResult from './components/CheckScoreResult'
+import Verify from './components/Verify'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/EditInfo" component={EditInfo} />
         <Route exact path="/Feedback" component={Feedback} />
         <Route exact path="/Register" component={Register} />
+        <Route exact path="/Verify" component={Verify} />
         <Route exact path="/" component={Homepage} />
       </Switch>
     </BrowserRouter>

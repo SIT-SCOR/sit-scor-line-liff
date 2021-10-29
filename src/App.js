@@ -16,6 +16,8 @@ function App() {
       <Switch>
         <Route exact path="/CheckScore" component={CheckScore} />
         <Route exact path="/CheckScoreResult" component={CheckScoreResult} />
+        <Route exact path="/CheckTasks" component={CheckTasks} />
+        <Route exact path="/CheckTasksResult" component={CheckTasksResult} />
         <Route exact path="/ConfirmEdit" component={ConfirmEdit} />
         <Route exact path="/ConfirmFeedback" component={ConfirmFeedback} />
         <Route exact path="/EditInfo" component={EditInfo} />

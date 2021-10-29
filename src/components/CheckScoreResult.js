@@ -3,10 +3,9 @@ import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router';
 import Logo from '../images/Logo.png'
 
-export default function CheckScore(props) {
+export default function CheckScoreResult(props) {
 
-    const history = useHistory()
-    const userLineID = props.location.state.userLineID;
+    const history = useHistory();
     const studentid = props.location.state.studentid;
     const semester = props.location.state.semester;
     const subjectid = props.location.state.subjectid;

@@ -36,7 +36,7 @@ export default function Homepage() {
                     liff.login({ redirectUrl: "https://sit-scor.github.io/sit-scor-line-liff/" })
                 }
             });
-            console.log(alreadyHaved)
+            console.log(alreadyRegister)
             console.log(isVerify)
         }
         getProfile()

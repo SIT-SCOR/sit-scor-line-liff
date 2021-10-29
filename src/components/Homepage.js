@@ -20,7 +20,7 @@ export default function Homepage() {
 
     useEffect(() => {
         const getProfile = () => {
-            liff.init(async () => {
+            liff.init({ liffId: "1655669621-oYVQEDKQ" }, async () => {
                 if (liff.isLoggedIn()) {
                     let getProfile = await liff.getProfile();
                     setName(getProfile.displayName);

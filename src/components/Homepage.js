@@ -16,10 +16,11 @@ export default function Homepage() {
     const [userLineID, setUserLineID] = useState("")
     const [pictureUrl, setPictureUrl] = useState("")
     const [alreadyRegister, setAlreadyRegister] = useState(Boolean)
+    const [isVerify, setIsVerify] = useState(Boolean)
 
     useEffect(() => {
         const getProfile = () => {
-            liff.init({ liffId: "1655669621-oYVQEDKQ" }, async () => {
+            liff.init(async () => {
                 if (liff.isLoggedIn()) {
                     let getProfile = await liff.getProfile();
                     setName(getProfile.displayName);
@@ -28,6 +29,8 @@ export default function Homepage() {
                     let uid = getProfile.userId;
                     let checkRegister = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/checkregister/${uid}`)
                     setAlreadyRegister(checkRegister.data.alreadyHaved)
+                    let verify = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/read/${uid}`)
+                    setIsVerify(verify.data.isVerify)
                 } else {
                     liff.login({ redirectUrl: "https://sit-scor.github.io/sit-scor-line-liff/"})
                 }
@@ -35,19 +38,6 @@ export default function Homepage() {
         }
         getProfile()
     }, [])
-
-    // const sendMessage = () => {
-    //     liff.sendMessages([{
-    //         type: 'text',
-    //         text: "Hi LIFF"
-    //     }]).then(() => {
-    //         liff.closeWindow();
-    //     });
-    // }
-
-    // const closeLIFF = () => {
-    //     liff.closeWindow();
-    // }
 
     return (
         <div className="App">
@@ -88,8 +78,8 @@ export default function Homepage() {
                 <div className="container-fluid p-3">
                     <div className="row">
                         <div className="col-12 col-sm-12">
-                            {
-                                alreadyRegister === false
+                        {
+                                alreadyRegister === false && isVerify === false
                                     ?
                                     <Link to={{
                                         pathname: '/Register',
@@ -103,6 +93,28 @@ export default function Homepage() {
                                         </button>
                                     </Link>
                                     :
+                                    null
+                            }
+                            {
+                                alreadyRegister === true && isVerify === false
+                                    ?
+                                    <Link to={{
+                                        pathname: '/Verify',
+                                        state: {
+                                            userLineID: userLineID
+                                        }
+                                    }}>
+                                        <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
+                                            <img src={Register} alt="Register" width="37%" />
+                                            <p>Verify</p>
+                                        </button>
+                                    </Link>
+                                    :
+                                    null
+                            }
+                            {
+                                alreadyRegister === true && isVerify === true
+                                    ?
                                     <Link to={{
                                         pathname: '/EditInfo',
                                         state: {
@@ -114,6 +126,8 @@ export default function Homepage() {
                                             <p>Edit</p>
                                         </button>
                                     </Link>
+                                    :
+                                    null
                             }
                         </div>
                     </div>
@@ -137,7 +151,7 @@ export default function Homepage() {
                     </div>
                 </div>
                 {
-                    alreadyRegister === false
+                    alreadyRegister === true && isVerify === true
                         ?
                         <div className="container-fluid p-3">
                             <div className="row">
@@ -159,25 +173,7 @@ export default function Homepage() {
                             </div>
                         </div>
                         :
-                        <div className="container-fluid p-3">
-                            <div className="row">
-                                <div className="col-12 col-sm-12">
-                                    <Link to={{
-                                        pathname: '/CheckScore',
-                                        state: {
-                                            userLineID: userLineID,
-                                            name: name,
-                                            pictureUrl: pictureUrl
-                                        }
-                                    }}>
-                                        <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
-                                            <img src={Scoreboard} alt="Feedback" width="37%" />
-                                            <p>Check Score</p>
-                                        </button>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
+                        null
                 }
             </header>
         </div>

@@ -17,6 +17,7 @@ export default function Homepage() {
     const [userLineID, setUserLineID] = useState("")
     const [pictureUrl, setPictureUrl] = useState("")
     const [alreadyRegister, setAlreadyRegister] = useState(Boolean)
+    const [isVerify, setIsVerify] = useState(Boolean)
 
     useEffect(() => {
         const getProfile = () => {

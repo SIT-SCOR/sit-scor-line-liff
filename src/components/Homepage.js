@@ -42,7 +42,7 @@ export default function Homepage() {
 
     return (
         <div className="App">
-            <div className="container background-header">
+            <div className="container-fluid background-header">
                 <div className="row">
                     <div className="col-12 col-sm-12">
                         <img src={Logo} alt="logo" width="90px" height="95px" />

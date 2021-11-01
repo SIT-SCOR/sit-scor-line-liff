@@ -47,7 +47,9 @@ export default function Verify(props) {
                     nextSibling.focus();
                 }
             }
-            if (parseInt(fieldIndex, 10) > 0) {
+        }
+        if (value.length < maxLength) {
+            if (parseInt(fieldIndex, 10) > 1) {
                 const nextSibling = document.querySelector(
                     `input[name=number-${parseInt(fieldIndex, 10) - 1}]`
                 );
@@ -56,7 +58,6 @@ export default function Verify(props) {
                 }
             }
         }
-
         if (name === "number-1") {
             setNumber1(value)
         }

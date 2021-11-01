@@ -38,7 +38,7 @@ export default function Verify(props) {
         const { maxLength, value, name } = e.target;
         const [fieldName, fieldIndex] = name.split("-");
 
-        if (value.length >= maxLength) {
+        if (value.length === maxLength) {
             if (parseInt(fieldIndex, 10) < 4) {
                 const nextSibling = document.querySelector(
                     `input[name=number-${parseInt(fieldIndex, 10) + 1}]`

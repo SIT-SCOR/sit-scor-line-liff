@@ -47,7 +47,7 @@ export default function Verify(props) {
                     nextSibling.focus();
                 }
             }
-            if (parseInt(fieldIndex, 10) < -3) {
+            if (parseInt(fieldIndex, 10) > 0) {
                 const nextSibling = document.querySelector(
                     `input[name=number-${parseInt(fieldIndex, 10) - 1}]`
                 );
@@ -112,16 +112,16 @@ export default function Verify(props) {
                         <div className="col-12">
                             <div className="row justify-content-center">
                                 <div className="col-2">
-                                    <input className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number-1" value={number1} onChange={handleChange} />
+                                    <input type="number" className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number-1" value={number1} onChange={handleChange} />
                                 </div>
                                 <div className="col-2">
-                                    <input className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number-2" value={number2} onChange={handleChange} />
+                                    <input type="number" className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number-2" value={number2} onChange={handleChange} />
                                 </div>
                                 <div className="col-2">
-                                    <input className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number-3" value={number3} onChange={handleChange} />
+                                    <input type="number" className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number-3" value={number3} onChange={handleChange} />
                                 </div>
                                 <div className="col-2">
-                                    <input className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number-4" value={number4} onChange={handleChange} />
+                                    <input type="number" className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number-4" value={number4} onChange={handleChange} />
                                 </div>
                             </div>
                         </div>

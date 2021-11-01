@@ -33,7 +33,7 @@ export default function Verify(props) {
                 history.push("/ConfirmVerify")
             })
             .catch(() => {
-                window.alert("Please enter one input in each input")
+                window.alert("Invalid pincode. Please check your pincode and each input have one number.")
             })
     }
 

@@ -34,6 +34,35 @@ export default function Verify(props) {
             })
     }
 
+    const handleChange = (e) => {
+        const { maxLength, value, name } = e.target;
+        const [fieldName, fieldIndex] = name.split("-");
+
+        if (value.length >= maxLength) {
+            if (parseInt(fieldIndex, 10) < 4) {
+                const nextSibling = document.querySelector(
+                    `input[name=number-${parseInt(fieldIndex, 10) + 1}]`
+                );
+                if (nextSibling !== null) {
+                    nextSibling.focus();
+                }
+            }
+        }
+
+        if (name === "number-1") {
+            setNumber1(value)
+        }
+        if (name === "number-2") {
+            setNumber2(value)
+        }
+        if (name === "number-3") {
+            setNumber3(value)
+        }
+        if (name === "number-4") {
+            setNumber4(value)
+        }
+    }
+
     const resend = (e) => {
         e.preventDefault()
 
@@ -75,16 +104,16 @@ export default function Verify(props) {
                         <div className="col-12">
                             <div className="row justify-content-center">
                                 <div className="col-2">
-                                    <input className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number1" value={number1} onChange={(e) => setNumber1(e.target.value)} />
+                                    <input className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number-1" value={number1} onChange={handleChange} />
                                 </div>
                                 <div className="col-2">
-                                    <input className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number2" value={number2} onChange={(e) => setNumber2(e.target.value)} />
+                                    <input className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number-2" value={number2} onChange={handleChange} />
                                 </div>
                                 <div className="col-2">
-                                    <input className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number3" value={number3} onChange={(e) => setNumber3(e.target.value)} />
+                                    <input className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number-3" value={number3} onChange={handleChange} />
                                 </div>
                                 <div className="col-2">
-                                    <input className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number4" value={number4} onChange={(e) => setNumber4(e.target.value)} />
+                                    <input className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number-4" value={number4} onChange={handleChange} />
                                 </div>
                             </div>
                         </div>

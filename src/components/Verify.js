@@ -47,6 +47,14 @@ export default function Verify(props) {
                     nextSibling.focus();
                 }
             }
+            if (parseInt(fieldIndex, 10) < -3) {
+                const nextSibling = document.querySelector(
+                    `input[name=number-${parseInt(fieldIndex, 10) - 1}]`
+                );
+                if (nextSibling !== null) {
+                    nextSibling.focus();
+                }
+            }
         }
 
         if (name === "number-1") {

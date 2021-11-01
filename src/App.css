@@ -17,7 +17,7 @@
   background-image: url('./images/lineliff.jpg');
   background-color: #A7C5EB;
   min-height: 89vh;
-  max-height: 100vh;
+  max-height: 130vh;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
@@ -25,6 +25,14 @@
 
 .CheckScore-header {
   background-color: #A7C5EB;
+  min-height: 100vh;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.CheckTasks-header {
+  background-color: #FFA78F;
   min-height: 100vh;
   justify-content: center;
   font-size: calc(10px + 2vmin);

@@ -58,7 +58,7 @@ export default function CheckScore(props) {
 
     return (
         <div className="App">
-            <div className="container background-header">
+            <div className="container-fluid background-header">
                 <div className="row">
                     <div className="col-12 col-sm-12">
                         <img src={Logo} alt="logo" width="144px" height="144px" />
@@ -106,7 +106,6 @@ export default function CheckScore(props) {
                             <Link to={{
                                 pathname: '/CheckScoreResult',
                                 state: {
-                                    userLineID: userLineID,
                                     studentid: studentID,
                                     semester: semester,
                                     subjectid: subject,

@@ -80,7 +80,7 @@ export default function Homepage() {
                     <div className="row">
                         <div className="col-12 col-sm-12">
                             {
-                                alreadyRegister === false && isVerify === false
+                                alreadyRegister === false
                                     ?
                                     <Link to={{
                                         pathname: '/Register',

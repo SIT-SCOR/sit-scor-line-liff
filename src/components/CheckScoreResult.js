@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router';
 import Logo from '../images/Logo.png'
+import Results from './Results'
 
 export default function CheckScoreResult(props) {
 
@@ -17,32 +18,8 @@ export default function CheckScoreResult(props) {
         const fetchScore = async () => {
             let subject = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/subject/reads/${studentid}/${semester}/${subjectid}/${password}`)
             setSubjectname(subject.data.subjectname)
-            let activities = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/activity/reads/${semester}/${subject.data.id}/${subject.data.sectionid}`)
-            let arrayActivity = activities.data
-            let result = [];
-            arrayActivity.forEach(async (activity) => {
-                console.log(activity.activityid)
-                if (activity.activitytype === "Individual") {
-                    let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/individual/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${activity.activityname}`)
-                    let scoreResult = score.data
-                    console.log(scoreResult)
-                    result.push(scoreResult)
-                }
-                if (activity.activitytype === "Group") {
-                    let groups = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/groupid/reads/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}`)
-                    let arrayGroups = groups.data
-                    arrayGroups.forEach(async (group) => {
-                        let score = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/score/group/read/${studentid}/${semester}/${subject.data.id}/${subject.data.sectionid}/${activity.activityid}/${activity.activityname}/${group.id}`)
-                        let scoreResult = score.data
-                        console.log(scoreResult)
-                        if (scoreResult !== "") {
-                            result.push(scoreResult)
-                        }
-                    })
-                }
-            })
-            console.log(result)
-            setScores(result)
+            let fetchScore = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/checkscore/${studentid}/${semester}/${subjectid}/${password}`)
+            setScores(fetchScore.data)
         }
         fetchScore()
     }, [studentid, semester, subjectid, password])
@@ -50,6 +27,8 @@ export default function CheckScoreResult(props) {
     const homepage = () => {
         history.push("/")
     }
+
+    console.log(scores)
 
     return (
         <div className="App">
@@ -69,9 +48,9 @@ export default function CheckScoreResult(props) {
                             </div>
                             <div className="row">
                                 <div className="col-12">
-                                    <div className="card">
+                                    <div className="card" style={{ borderRadius: "30px" }}>
                                         <div className="card-body" style={{ borderRadius: "30px", border: "2px solid #5C7AE2", backgroundColor: "#A7C5EB" }}>
-                                            <span style={{ color: "#ffffff" }}>
+                                            <span style={{ color: "#ffffff", fontWeight: 'bold' }}>
                                                 {subjectid} {subjectname}
                                             </span>
                                         </div>
@@ -80,28 +59,14 @@ export default function CheckScoreResult(props) {
                             </div>
                             <div className="row" style={{ marginTop: "2vh" }}>
                                 <div className="col-12">
-                                    <div className="card">
+                                    <div className="card" style={{ borderRadius: "15px" }}>
                                         <div className="card-body" style={{ backgroundColor: "#A7C5EB", borderRadius: "15px", minHeight: "50vh" }}>
-                                            {scores.forEach(score => {
-                                                return (
-                                                    <div>
-                                                        <span style={{fontWeight: "bold", color: "#4E5FC6"}}>
-                                                            {score.activityid}
-                                                        </span><br />
-                                                        <span style={{fontWeight: "bold", color: "#ffffff"}}>
-                                                            {score.activityname}
-                                                        </span><br />
-                                                        <span style={{fontWeight: "bold", color: "#000000"}}>
-                                                            {score.score}
-                                                        </span>
-                                                    </div>
-                                                )
-                                            })}
+                                            <Results scores={scores} />
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="row" style={{marginTop: "3vh"}}>
+                            <div className="row" style={{ marginTop: "3vh" }}>
                                 <div className="col-12">
                                     <button className="btn" onClick={homepage} style={{ color: '#FFFFFF', backgroundColor: '#5C7AE2', fontWeight: 'bold' }}>Home</button>
                                 </div>

@@ -26,6 +26,11 @@ export default function Register(props) {
         setTitle(selectedTitle)
     }
 
+    const onChangeYear = (e) => {
+        const selectedYear = e.target.value
+        setYear(selectedYear)
+    }
+
     const registerInfo = async (e) => {
         e.preventDefault()
 
@@ -98,7 +103,7 @@ export default function Register(props) {
                     <div className="row p-2">
                         <div className="col-4">
                             <select className="form-control" id="sel1" defaultValue={title} onChange={(e) => onChangeTitle(e)} >
-                                <option value="Title...">Select...</option>
+                                <option value="Title...">Title...</option>
                                 <option value="Mr.">Mr.</option>
                                 <option value="Mrs.">Mrs.</option>
                                 <option value="Miss">Miss</option>
@@ -121,7 +126,13 @@ export default function Register(props) {
                     </div>
                     <div className="row p-2">
                         <div className="col-3">
-                            <input className="form-control" placeholder="Year" name="year" value={year} onChange={(e) => setYear(e.target.value)} />
+                            <select className="form-control" id="sel1" defaultValue={year} onChange={(e) => onChangeYear(e)} >
+                                <option value="Year...">Year...</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
                         </div>
                         <div className="col-9">
                             <input className="form-control" placeholder="Email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />

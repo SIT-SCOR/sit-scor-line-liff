@@ -105,7 +105,7 @@ export default function Feedback(props) {
                 <div className="container-fluid p-3">
                     <div className="row d-flex justify-content-center">
                         <div className="col-4">
-                            <button className="btn" onClick={homepage} style={{ color: '#FFFFFF', backgroundColor: '#5C7AE2', fontWeight: 'bold' }}>Home</button>
+                            <button className="btn" onClick={homepage} style={{ color: '#FFFFFF', backgroundColor: '#5C7AE2', fontWeight: 'bold', fontSize: '18px' }}>Home</button>
                         </div>
                     </div>
                 </div>

@@ -39,9 +39,9 @@ export default function Verify(props) {
         const [fieldName, fieldIndex] = name.split("-");
 
         if (value.length >= maxLength) {
-            if (parseInt(fieldIndex, 10) < 3) {
+            if (parseInt(fieldIndex, 10) < 4) {
                 const nextSibling = document.querySelector(
-                    `input[name=number-${parseInt(fieldIndex, 10) + 1}]`
+                    `input[name=number-${parseInt(fieldIndex, 10) + 1},maxLength="1"]`
                 );
                 if (nextSibling !== null) {
                     nextSibling.focus();
@@ -51,7 +51,7 @@ export default function Verify(props) {
         if (value.length < maxLength) {
             if (parseInt(fieldIndex, 10) > 1) {
                 const nextSibling = document.querySelector(
-                    `input[name=number-${parseInt(fieldIndex, 10) - 1}]`
+                    `input[name=number-${parseInt(fieldIndex, 10) - 1},maxLength="1"]`
                 );
                 if (nextSibling !== null) {
                     nextSibling.focus();

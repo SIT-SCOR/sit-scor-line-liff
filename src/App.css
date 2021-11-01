@@ -64,6 +64,19 @@
   color: white;
 }
 
+.Verify-header {
+  background-color: #FFFFFF;
+  min-height: 76vh;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.SpanHover:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .background-header {
   background: linear-gradient(180deg, rgba(167, 197, 235, 0) 0%, #A7C5EB 100%);
 }

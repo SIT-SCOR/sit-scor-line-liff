@@ -43,42 +43,46 @@ export default function Homepage() {
     return (
         <div className="App">
             <div className="container-fluid background-header">
-                <div className="row">
-                    <div className="col-12 col-sm-12">
-                        <img src={Logo} alt="logo" width="90px" height="95px" />
+                <div className="row justify-content-center">
+                    <div className="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-1">
+                        <img src={Logo} alt="logo" width="100%" />
                     </div>
                 </div>
             </div>
             <header className="App-header gap-3">
                 <div className="container-fluid p-3">
-                    <div className="card maincard-background">
-                        <div className="card-body">
-                            <div className="row">
-                                <div className="col-5 col-sm-5">
-                                    {
-                                        (pictureUrl && pictureUrl !== '')
-                                            ?
-                                            <img width="35%" src={pictureUrl} alt="user profile" style={{ borderRadius: '50%' }} />
-                                            :
-                                            <img width="35%" src={userLoad} alt="user loading" />
-                                    }
-                                </div>
-                                <div className="col-7 col-sm-5 d-flex align-items-center" style={{ fontSize: '20px' }}>
-                                    {
-                                        (name && name !== '')
-                                            ?
-                                            <span>{name}</span>
-                                            :
-                                            <span>Loading</span>
-                                    }
+                    <div className="row justify-content-center">
+                        <div className="col-12 col-sm-12 col-md-9 col-lg-7 col-xl-5">
+                            <div className="card maincard-background">
+                                <div className="card-body">
+                                    <div className="row">
+                                        <div className="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2">
+                                            {
+                                                (pictureUrl && pictureUrl !== '')
+                                                    ?
+                                                    <img width="100%" src={pictureUrl} alt="user profile" style={{ borderRadius: '50%' }} />
+                                                    :
+                                                    <img width="100%" src={userLoad} alt="user loading" />
+                                            }
+                                        </div>
+                                        <div className="col-6 col-sm-6 col-md-8 col-lg-8 col-xl-8 justify-content-center d-flex align-items-center" style={{ fontSize: '20px' }}>
+                                            {
+                                                (name && name !== '')
+                                                    ?
+                                                    <span>{name}</span>
+                                                    :
+                                                    <span>Loading</span>
+                                            }
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="container-fluid p-3">
-                    <div className="row">
-                        <div className="col-12 col-sm-12">
+                    <div className="row justify-content-center">
+                        <div className="col-12 col-sm-12 col-md-9 col-lg-7 col-xl-5">
                             {
                                 alreadyRegister === false
                                     ?
@@ -88,9 +92,9 @@ export default function Homepage() {
                                             userLineID: userLineID
                                         }
                                     }}>
-                                        <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
-                                            <img src={Register} alt="Register" width="37%" />
-                                            <p>Register</p>
+                                        <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
+                                            <img src={Register} alt="Register" width="30%" /><br />
+                                            <span>Register</span>
                                         </button>
                                     </Link>
                                     :
@@ -105,9 +109,9 @@ export default function Homepage() {
                                             userLineID: userLineID
                                         }
                                     }}>
-                                        <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
-                                            <img src={Register} alt="Register" width="37%" />
-                                            <p>Verify</p>
+                                        <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
+                                            <img src={Register} alt="Register" width="30%" /><br />
+                                            <span>Verify</span>
                                         </button>
                                     </Link>
                                     :
@@ -122,9 +126,9 @@ export default function Homepage() {
                                             userLineID: userLineID
                                         }
                                     }}>
-                                        <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
-                                            <img src={Register} alt="Edit" width="37%" />
-                                            <p>Edit</p>
+                                        <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
+                                            <img src={Register} alt="Edit" width="30%" /><br />
+                                            <span>Edit</span>
                                         </button>
                                     </Link>
                                     :
@@ -134,8 +138,8 @@ export default function Homepage() {
                     </div>
                 </div>
                 <div className="container-fluid p-3">
-                    <div className="row">
-                        <div className="col-12 col-sm-12">
+                    <div className="row justify-content-center">
+                        <div className="col-12 col-sm-12 col-md-9 col-lg-7 col-xl-5">
                             <Link to={{
                                 pathname: '/Feedback',
                                 state: {
@@ -143,17 +147,17 @@ export default function Homepage() {
                                     pictureUrl: pictureUrl
                                 }
                             }}>
-                                <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
-                                    <img src={Feedback} alt="Feedback" width="37%" />
-                                    <p>Feedback</p>
+                                <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
+                                    <img src={Feedback} alt="Feedback" width="30%" /><br />
+                                    <span>Feedback</span>
                                 </button>
                             </Link>
                         </div>
                     </div>
                 </div>
                 <div className="container-fluid p-3">
-                    <div className="row">
-                        <div className="col-12 col-sm-12">
+                    <div className="row justify-content-center">
+                        <div className="col-12 col-sm-12 col-md-9 col-lg-7 col-xl-5">
                             {
                                 alreadyRegister === true && isVerify === true
                                     ?
@@ -165,9 +169,9 @@ export default function Homepage() {
                                             pictureUrl: pictureUrl
                                         }
                                     }}>
-                                        <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
-                                            <img src={Scoreboard} alt="Feedback" width="37%" />
-                                            <p>Check Score</p>
+                                        <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
+                                            <img src={Scoreboard} alt="Feedback" width="30%" /><br />
+                                            <span>Check Score</span>
                                         </button>
                                     </Link>
                                     :
@@ -177,8 +181,8 @@ export default function Homepage() {
                     </div>
                 </div>
                 <div className="container-fluid p-3">
-                    <div className="row">
-                        <div className="col-12 col-sm-12">
+                    <div className="row justify-content-center">
+                        <div className="col-12 col-sm-12 col-md-9 col-lg-7 col-xl-5">
                             {
                                 alreadyRegister === true && isVerify === true
                                     ?
@@ -190,9 +194,9 @@ export default function Homepage() {
                                             pictureUrl: pictureUrl
                                         }
                                     }}>
-                                        <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', height: '22vh', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
-                                            <img src={Tasks} alt="Feedback" width="37%" />
-                                            <p>Check Task</p>
+                                        <button type="button" className="btn btn-outline-primary" style={{ backgroundColor: 'white', width: '100%', borderRadius: '15px', border: '5px solid #4E5FC6' }}>
+                                            <img src={Tasks} alt="Feedback" width="30%" /><br />
+                                            <span>Check Task</span>
                                         </button>
                                     </Link>
                                     :

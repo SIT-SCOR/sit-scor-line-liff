@@ -38,58 +38,66 @@ export default function Feedback(props) {
     return (
         <div className="App">
             <div className="container-fluid background-header">
-                <div className="row">
-                    <div className="col-12 col-sm-12">
+                <div className="row justify-content-center">
+                    <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <img src={Logo} alt="logo" width="144px" height="144px" />
                     </div>
                 </div>
                 <div className="row" style={{ paddingBottom: "15px", fontSize: "24px", color: "#FFFFFF" }}>
-                    <div className="col-12 col-sm-12">
+                    <div className="col-12 col-sm-12 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         Feedback
                     </div>
                 </div>
             </div>
             <div className="Feedback-header gap-3">
                 <div className="container-fluid p-2">
-                    <div className="card maincard-background">
-                        <div className="card-body">
-                            <div className="row">
-                                <div className="col-5 col-sm-5">
-                                    {
-                                        (pictureUrl && pictureUrl !== '')
-                                            ?
-                                            <img width="35%" src={pictureUrl} alt="user profile" style={{ borderRadius: '50%' }} />
-                                            :
-                                            <img width="35%" src={userLoad} alt="user loading" />
-                                    }
-                                </div>
-                                <div className="col-7 col-sm-5 d-flex align-items-center" style={{ fontSize: '20px' }}>
-                                    {
-                                        (name && name !== '')
-                                            ?
-                                            <span>{name}</span>
-                                            :
-                                            <span>Loading</span>
-                                    }
+                    <div className="row justify-content-center">
+                        <div className="col-11 col-sm-8 col-md-7 col-lg-7 col-xl-6">
+                            <div className="card maincard-background">
+                                <div className="card-body">
+                                    <div className="row">
+                                        <div className="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5">
+                                            {
+                                                (pictureUrl && pictureUrl !== '')
+                                                    ?
+                                                    <img width="35%" src={pictureUrl} alt="user profile" style={{ borderRadius: '50%' }} />
+                                                    :
+                                                    <img width="35%" src={userLoad} alt="user loading" />
+                                            }
+                                        </div>
+                                        <div className="col-7 col-sm-5 col-md-5 col-lg-5 col-xl-5 d-flex align-items-center" style={{ fontSize: '20px' }}>
+                                            {
+                                                (name && name !== '')
+                                                    ?
+                                                    <span>{name}</span>
+                                                    :
+                                                    <span>Loading</span>
+                                            }
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="container-fluid p-2">
-                    <div className="card feedback-background">
-                        <div className="card-body">
-                            <div className="row">
-                                <div className="col-5 col-sm-5" style={{ textAlign: 'left', fontSize: '17px', color: '#000000', fontWeight: 'bold' }}>
-                                    Feedback
-                                </div>
-                                <div className="col-7 col-sm-7" style={{ textAlign: 'right', fontSize: '17px', color: '#3654D5', fontWeight: 'bold' }}>
-                                    send as anonymous
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-12 col-sm-12">
-                                    <textarea type="text" style={{ width: '100%', height: '20vh' }} name="message" value={message} onChange={(e) => setMessage(e.target.value)} />
+                    <div className="row justify-content-center">
+                        <div className="col-11 col-sm-8 col-md-7 col-lg-7 col-xl-6">
+                            <div className="card feedback-background">
+                                <div className="card-body">
+                                    <div className="row">
+                                        <div className="col-5 col-sm-5" style={{ textAlign: 'left', fontSize: '17px', color: '#000000', fontWeight: 'bold' }}>
+                                            Feedback
+                                        </div>
+                                        <div className="col-7 col-sm-7" style={{ textAlign: 'right', fontSize: '17px', color: '#3654D5', fontWeight: 'bold' }}>
+                                            send as anonymous
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-12 col-sm-12">
+                                            <textarea type="text" style={{ width: '100%', height: '20vh' }} name="message" value={message} onChange={(e) => setMessage(e.target.value)} />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -97,15 +105,15 @@ export default function Feedback(props) {
                 </div>
                 <div className="container-fluid p-3">
                     <div className="row d-flex justify-content-center">
-                        <div className="col-4">
-                            <input type="submit" className="btn" onClick={(e) => sendFeedback(e)} style={{ backgroundColor: '#79D70F', color: '#FFFFFF', fontWeight: 'bold', fontSize: '18px' }} value="Send" />
+                        <div className="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                            <input type="submit" className="btn" onClick={(e) => sendFeedback(e)} style={{ width: '100%', backgroundColor: '#79D70F', color: '#FFFFFF', fontWeight: 'bold', fontSize: '18px' }} value="Send" />
                         </div>
                     </div>
                 </div>
                 <div className="container-fluid p-3">
                     <div className="row d-flex justify-content-center">
-                        <div className="col-4">
-                            <button className="btn" onClick={homepage} style={{ color: '#FFFFFF', backgroundColor: '#5C7AE2', fontWeight: 'bold', fontSize: '18px' }}>Home</button>
+                        <div className="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                            <button className="btn" onClick={homepage} style={{ width: '100%', color: '#FFFFFF', backgroundColor: '#5C7AE2', fontWeight: 'bold', fontSize: '18px' }}>Home</button>
                         </div>
                     </div>
                 </div>

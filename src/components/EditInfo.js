@@ -176,12 +176,12 @@ export default function EditInfo(props) {
                         </div>
                     </div>
                     <div className="row p-2 d-flex justify-content-center">
-                        <div className="col-4">
+                        <div className="col-4 col-sm-4 col-md-3 col-lg-3 col-xl-3">
                             <button className="btn" onClick={(e) => updateInfo(e)} style={{ fontWeight: 'bold', color: '#FFFFFF', backgroundColor: '#91E45E', width: '100%' }}>Update</button>
                         </div>
                     </div>
                     <div className="row p-2 d-flex justify-content-center">
-                        <div className="col-4">
+                        <div className="col-4 col-sm-4 col-md-3 col-lg-3 col-xl-3">
                             <button className="btn" onClick={homepage} style={{ fontWeight: 'bold', color: '#FFFFFF', backgroundColor: '#8199EF', width: '100%' }}>Home</button>
                         </div>
                     </div>

@@ -74,7 +74,7 @@ export default function Register(props) {
 
     return (
         <div className="App">
-            <div className="container background-header">
+            <div className="container-fluid background-header">
                 <div className="row">
                     <div className="col-12 col-sm-12">
                         <img src={Logo} alt="logo" width="144px" height="144px" />
@@ -149,12 +149,12 @@ export default function Register(props) {
                         </div>
                     </div>
                     <div className="row p-2 d-flex justify-content-center">
-                        <div className="col-4">
+                        <div className="col-4 col-sm-4 col-md-3 col-lg-3 col-xl-3">
                             <button className="btn" onClick={(e) => registerInfo(e)} style={{ fontWeight: 'bold', color: '#FFFFFF', backgroundColor: '#91E45E', width: '100%' }}>Register</button>
                         </div>
                     </div>
                     <div className="row p-2 d-flex justify-content-center">
-                        <div className="col-4">
+                        <div className="col-4 col-sm-4 col-md-3 col-lg-3 col-xl-3">
                             <button className="btn" onClick={homepage} style={{ fontWeight: 'bold', color: '#FFFFFF', backgroundColor: '#8199EF', width: '100%' }}>Home</button>
                         </div>
                     </div>

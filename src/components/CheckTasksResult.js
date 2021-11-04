@@ -28,8 +28,6 @@ export default function CheckTasksResult(props) {
         history.push("/")
     }
 
-    console.log(scores)
-
     return (
         <div className="App">
             <header className="CheckTasks-header">

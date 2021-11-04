@@ -96,10 +96,18 @@ export default function Feedback(props) {
                     </div>
                 </div>
                 <div className="container-fluid p-3">
-                    <input type="submit" className="btn" onClick={(e) => sendFeedback(e)} style={{ backgroundColor: '#79D70F', color: '#FFFFFF', fontWeight: 'bold', fontSize: '18px' }} value="Send" />
+                    <div className="row d-flex justify-content-center">
+                        <div className="col-4">
+                            <input type="submit" className="btn" onClick={(e) => sendFeedback(e)} style={{ backgroundColor: '#79D70F', color: '#FFFFFF', fontWeight: 'bold', fontSize: '18px' }} value="Send" />
+                        </div>
+                    </div>
                 </div>
                 <div className="container-fluid p-3">
-                    <button className="btn" onClick={homepage} style={{ color: '#FFFFFF', backgroundColor: '#5C7AE2', fontWeight: 'bold' }}>Home</button>
+                    <div className="row d-flex justify-content-center">
+                        <div className="col-4">
+                            <button className="btn" onClick={homepage} style={{ color: '#FFFFFF', backgroundColor: '#5C7AE2', fontWeight: 'bold', fontSize: '18px' }}>Home</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

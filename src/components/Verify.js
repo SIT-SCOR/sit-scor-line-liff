@@ -3,16 +3,14 @@ import { useHistory } from 'react-router'
 import Logo from '../images/Logo.png'
 import axios from 'axios';
 import verifyIcon from '../images/verify.png'
+import PinInput from "react-pin-input";
 
 export default function Verify(props) {
 
     const history = useHistory()
     const userLineID = props.location.state.userLineID
     const [studentID, setStudentID] = useState("")
-    const [number1, setNumber1] = useState("")
-    const [number2, setNumber2] = useState("")
-    const [number3, setNumber3] = useState("")
-    const [number4, setNumber4] = useState("")
+    const [pincode, setPincode] = useState("")
 
     useEffect(() => {
         const fetchInfo = async () => {
@@ -25,13 +23,18 @@ export default function Verify(props) {
     const verify = (e) => {
         e.preventDefault()
 
-        const pincode = String(number1 + number2 + number3 + number4)
-
         axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/verify/${studentID}/${pincode}`)
             .then(() => {
                 window.alert("Your account has been verify successfully!!!")
                 history.push("/ConfirmVerify")
             })
+            .catch(() => {
+                window.alert("Invalid pincode. Please check your pincode and each input have one number.")
+            })
+    }
+
+    const onChange = (value) => {
+        setPincode(value)
     }
 
     const resend = (e) => {
@@ -74,18 +77,14 @@ export default function Verify(props) {
                     <div className="row" style={{ marginTop: '10px' }} >
                         <div className="col-12">
                             <div className="row justify-content-center">
-                                <div className="col-2">
-                                    <input className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number1" value={number1} onChange={(e) => setNumber1(e.target.value)} />
-                                </div>
-                                <div className="col-2">
-                                    <input className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number2" value={number2} onChange={(e) => setNumber2(e.target.value)} />
-                                </div>
-                                <div className="col-2">
-                                    <input className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number3" value={number3} onChange={(e) => setNumber3(e.target.value)} />
-                                </div>
-                                <div className="col-2">
-                                    <input className="form-control" maxLength="1" style={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }} name="number4" value={number4} onChange={(e) => setNumber4(e.target.value)} />
-                                </div>
+                                <PinInput
+                                    length={4}
+                                    focus
+                                    secret
+                                    type="numeric"
+                                    inputStyle={{ width: "45px", height: "60px", fontSize: '30px', textAlign: 'center', backgroundColor: '#C4C4C4', borderRadius: '15px' }}
+                                    onChange={onChange}
+                                />
                             </div>
                         </div>
                     </div>
@@ -105,5 +104,4 @@ export default function Verify(props) {
             </div>
         </div>
     )
-
 }

@@ -141,7 +141,7 @@ export default function Verify(props) {
                                     type="numeric"
                                     onChange={onChange}
                                 />
-                                <div>{pincode}</div>
+                                <div style={{color: 'black'}}>{pincode}</div>
                             </div>
                         </div>
                     </div>

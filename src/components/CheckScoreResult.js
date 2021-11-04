@@ -31,42 +31,46 @@ export default function CheckScoreResult(props) {
     return (
         <div className="App">
             <header className="CheckScore-header">
-                <div className="container p-4">
-                    <div className="card">
-                        <div className="card-body" style={{ minHeight: "94vh" }}>
-                            <div className="row">
-                                <div className="col-6">
-                                    <span style={{ fontWeight: "bold", fontSize: "45px" }}>Check</span>
-                                    <br />
-                                    <span style={{ fontWeight: "bold", fontSize: "45px", color: "#5C7AE2" }}>Score</span>
-                                </div>
-                                <div className="col-6">
-                                    <img src={Logo} alt="logo" width="110%" />
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-12">
-                                    <div className="card" style={{ borderRadius: "30px" }}>
-                                        <div className="card-body" style={{ borderRadius: "30px", border: "2px solid #5C7AE2", backgroundColor: "#A7C5EB" }}>
-                                            <span style={{ color: "#ffffff", fontWeight: 'bold' }}>
-                                                {subjectid} {subjectname}
-                                            </span>
+                <div className="container-fluid p-4">
+                    <div className="row justify-content-center">
+                        <div className="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
+                            <div className="card">
+                                <div className="card-body" style={{ minHeight: "94vh" }}>
+                                    <div className="row justify-content-center d-flex align-items-center">
+                                        <div className="col-6 col-sm-4 col-md-4 col-lg-5 col-xl-6">
+                                            <span style={{ fontWeight: "bold", fontSize: "45px" }}>Check</span>
+                                            <br />
+                                            <span style={{ fontWeight: "bold", fontSize: "45px", color: "#5C7AE2" }}>Score</span>
+                                        </div>
+                                        <div className="col-6 col-sm-5 col-md-5 col-lg-5 col-xl-5">
+                                            <img src={Logo} alt="logo" width="100%" />
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div className="row" style={{ marginTop: "2vh" }}>
-                                <div className="col-12">
-                                    <div className="card" style={{ borderRadius: "15px" }}>
-                                        <div className="card-body" style={{ backgroundColor: "#A7C5EB", borderRadius: "15px", minHeight: "50vh" }}>
-                                            <Results scores={scores} />
+                                    <div className="row">
+                                        <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <div className="card" style={{ borderRadius: "30px" }}>
+                                                <div className="card-body" style={{ borderRadius: "30px", border: "2px solid #5C7AE2", backgroundColor: "#A7C5EB" }}>
+                                                    <span style={{ color: "#ffffff", fontWeight: 'bold' }}>
+                                                        {subjectid} {subjectname}
+                                                    </span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div className="row" style={{ marginTop: "3vh" }}>
-                                <div className="col-12">
-                                    <button className="btn" onClick={homepage} style={{ color: '#FFFFFF', backgroundColor: '#5C7AE2', fontWeight: 'bold' }}>Home</button>
+                                    <div className="row" style={{ marginTop: "2vh" }}>
+                                        <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <div className="card" style={{ borderRadius: "15px" }}>
+                                                <div className="card-body" style={{ backgroundColor: "#A7C5EB", borderRadius: "15px", minHeight: "55vh" }}>
+                                                    <Results scores={scores} />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row" style={{ marginTop: "3vh" }}>
+                                        <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <button className="btn" onClick={homepage} style={{ color: '#FFFFFF', backgroundColor: '#5C7AE2', fontWeight: 'bold' }}>Home</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

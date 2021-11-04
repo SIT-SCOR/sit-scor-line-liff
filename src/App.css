@@ -17,7 +17,7 @@
   background-image: url('./images/lineliff.jpg');
   background-color: #A7C5EB;
   min-height: 89vh;
-  max-height: 130vh;
+  /* max-height: 130vh; */
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;

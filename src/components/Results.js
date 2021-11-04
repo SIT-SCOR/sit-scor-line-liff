@@ -8,7 +8,7 @@ export default function Results(props) {
             scores.map((score, index) => {
                 return (
                     <div className="row" style={{ marginBottom: "10px" }}>
-                        <div className="col-12" style={{ textAlign: 'left', fontWeight: 'bold' }}>
+                        <div className="col-12 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style={{ textAlign: 'left', fontWeight: 'bold' }}>
                             <span style={{ color: "#4E5FC6" }}>{score.activityid}</span><br />
                             <span style={{ color: "#ffffff" }}>{score.activityname}</span><br />
                             <span style={{ color: "#000000" }}>Scores : {score.score}</span>
@@ -20,7 +20,7 @@ export default function Results(props) {
     } else {
         return (
             <div className="row">
-                <div className="col-12">
+                <div className="col-12 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
                 </div>
             </div>

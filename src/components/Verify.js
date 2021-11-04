@@ -62,9 +62,9 @@ export default function Verify(props) {
             </div>
             <div className="Verify-header">
                 <div className="container-fluid">
-                    <div className="row p-2">
-                        <div className="col-12">
-                            <img src={verifyIcon} width="30%" style={{ marginTop: "10px" }} alt="verify logo" />
+                    <div className="row p-2 justify-content-center">
+                        <div className="col-4 col-sm-4 col-lg-2 col-md-3 col-xl-2">
+                            <img src={verifyIcon} width="100%" style={{ marginTop: "10px" }} alt="verify logo" />
                         </div>
                     </div>
                     <div className="row p-2">
@@ -89,7 +89,7 @@ export default function Verify(props) {
                         </div>
                     </div>
                     <div className="row p-4 d-flex justify-content-center">
-                        <div className="col-7">
+                        <div className="col-7 col-sm-3 col-lg-3 col-md-3 col-xl-2">
                             <button className="btn" onClick={(e) => verify(e)} style={{ fontWeight: 'bold', color: '#FFFFFF', backgroundColor: '#91E45E', width: '100%', fontSize: '24px' }}>Verify</button>
                         </div>
                     </div>

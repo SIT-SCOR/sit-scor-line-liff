@@ -95,57 +95,61 @@ export default function Register(props) {
                             </span>
                         </div>
                     </div>
-                    <div className="row p-2">
-                        <div className="col-12 form-group">
-                            <input disabled className="form-control" placeholder="LINE ID" name="lineid" value={userLineID} />
-                        </div>
-                    </div>
-                    <div className="row p-2">
-                        <div className="col-4">
-                            <select className="form-control" id="sel1" defaultValue={title} onChange={(e) => onChangeTitle(e)} >
-                                <option value="Title...">Title...</option>
-                                <option value="Mr.">Mr.</option>
-                                <option value="Mrs.">Mrs.</option>
-                                <option value="Miss">Miss</option>
-                            </select>
-                        </div>
-                        <div className="col-4">
-                            <input className="form-control" placeholder="Firstname" name="firstname" value={firstname} onChange={(e) => setFirstname(e.target.value)} />
-                        </div>
-                        <div className="col-4">
-                            <input className="form-control" placeholder="Lastname" name="lastname" value={lastname} onChange={(e) => setLastname(e.target.value)} />
-                        </div>
-                    </div>
-                    <div className="row p-2">
-                        <div className="col-6">
-                            <input className="form-control" placeholder="Student ID" name="studentid" value={studentID} onChange={(e) => setStudentID(e.target.value)} />
-                        </div>
-                        <div className="col-6">
-                            <input className="form-control" placeholder="Faculty" name="faculty" value={faculty} onChange={(e) => setFaculty(e.target.value)} />
-                        </div>
-                    </div>
-                    <div className="row p-2">
-                        <div className="col-3">
-                            <select className="form-control" id="sel1" defaultValue={year} onChange={(e) => onChangeYear(e)} >
-                                <option value="Year...">Year...</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </div>
-                        <div className="col-9">
-                            <input className="form-control" placeholder="Email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                        </div>
-                    </div>
-                    <div className="row p-2">
-                        <div className="col-12 form-group">
-                            <input type="password" className="form-control" placeholder="Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                        </div>
-                    </div>
-                    <div className="row p-2">
-                        <div className="col-12 form-group">
-                            <input type="password" className="form-control" placeholder="Re-Password" name="repassword" value={repassword} onChange={(e) => setRepassword(e.target.value)} />
+                    <div className="row justify-content-center">
+                        <div className="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-6">
+                            <div className="row p-2">
+                                <div className="col-12 form-group">
+                                    <input disabled className="form-control" placeholder="LINE ID" name="lineid" value={userLineID} />
+                                </div>
+                            </div>
+                            <div className="row p-2">
+                                <div className="col-4">
+                                    <select className="form-control" id="sel1" defaultValue={title} onChange={(e) => onChangeTitle(e)} >
+                                        <option value="Title...">Title...</option>
+                                        <option value="Mr.">Mr.</option>
+                                        <option value="Mrs.">Mrs.</option>
+                                        <option value="Miss">Miss</option>
+                                    </select>
+                                </div>
+                                <div className="col-4">
+                                    <input className="form-control" placeholder="Firstname" name="firstname" value={firstname} onChange={(e) => setFirstname(e.target.value)} />
+                                </div>
+                                <div className="col-4">
+                                    <input className="form-control" placeholder="Lastname" name="lastname" value={lastname} onChange={(e) => setLastname(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="row p-2">
+                                <div className="col-6">
+                                    <input className="form-control" placeholder="Student ID" name="studentid" value={studentID} onChange={(e) => setStudentID(e.target.value)} />
+                                </div>
+                                <div className="col-6">
+                                    <input className="form-control" placeholder="Faculty" name="faculty" value={faculty} onChange={(e) => setFaculty(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="row p-2">
+                                <div className="col-3">
+                                    <select className="form-control" id="sel1" defaultValue={year} onChange={(e) => onChangeYear(e)} >
+                                        <option value="Year...">Year...</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                                <div className="col-9">
+                                    <input className="form-control" placeholder="Email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="row p-2">
+                                <div className="col-12 form-group">
+                                    <input type="password" className="form-control" placeholder="Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="row p-2">
+                                <div className="col-12 form-group">
+                                    <input type="password" className="form-control" placeholder="Re-Password" name="repassword" value={repassword} onChange={(e) => setRepassword(e.target.value)} />
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="row p-2 d-flex justify-content-center">

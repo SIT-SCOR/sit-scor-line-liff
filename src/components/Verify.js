@@ -137,7 +137,7 @@ export default function Verify(props) {
                                     length={4}
                                     focus
                                     secret
-                                    ref={(p) => (this.pin = p)}
+                                    // ref={(p) => (this.pin = p)}
                                     type="numeric"
                                     onChange={onChange}
                                 />

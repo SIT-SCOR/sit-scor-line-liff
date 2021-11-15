@@ -31,6 +31,11 @@ export default function Register(props) {
         setYear(selectedYear)
     }
 
+    const onChangeFaculty = (e) => {
+        const selectedFaculty = e.target.value
+        setFaculty(selectedFaculty)
+    }
+
     const registerInfo = async (e) => {
         e.preventDefault()
 
@@ -104,7 +109,7 @@ export default function Register(props) {
                             </div>
                             <div className="row p-2">
                                 <div className="col-4">
-                                    <select className="form-control" id="sel1" defaultValue={title} onChange={(e) => onChangeTitle(e)} >
+                                    <select className="form-control" id="sel1" name="title" value={title} onChange={(e) => onChangeTitle(e)} >
                                         <option value="Title...">Title...</option>
                                         <option value="Mr.">Mr.</option>
                                         <option value="Mrs.">Mrs.</option>
@@ -123,17 +128,26 @@ export default function Register(props) {
                                     <input className="form-control" placeholder="Student ID" name="studentid" value={studentID} onChange={(e) => setStudentID(e.target.value)} />
                                 </div>
                                 <div className="col-6">
-                                    <input className="form-control" placeholder="Faculty" name="faculty" value={faculty} onChange={(e) => setFaculty(e.target.value)} />
+                                    <select className="form-control" id="sel1" name="faculty" value={faculty} onChange={(e) => onChangeFaculty(e)} >
+                                        <option value="Faculty...">Year...</option>
+                                        <option value="IT">IT</option>
+                                        <option value="CS">CS</option>
+                                        <option value="DSI">DSI</option>
+                                    </select>
                                 </div>
                             </div>
                             <div className="row p-2">
                                 <div className="col-3">
-                                    <select className="form-control" id="sel1" defaultValue={year} onChange={(e) => onChangeYear(e)} >
+                                    <select className="form-control" id="sel1" name="year" value={year} onChange={(e) => onChangeYear(e)} >
                                         <option value="Year...">Year...</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                         <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
                                     </select>
                                 </div>
                                 <div className="col-9">

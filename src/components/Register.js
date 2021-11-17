@@ -162,7 +162,7 @@ export default function Register(props) {
                                     </select>
                                 </div>
                                 <div className="col-9">
-                                    <input className="form-control" placeholder="Email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                    <input className="form-control" placeholder="Email" name="email" value={email} onChange={(e) => validationEmail(e)} />
                                 </div>
                             </div>
                             <div className="row p-2">

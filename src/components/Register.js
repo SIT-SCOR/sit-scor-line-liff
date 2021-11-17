@@ -28,11 +28,12 @@ export default function Register(props) {
     }
 
     const validationEmail = (e) => {
-        const email = String(e.target.value)
+        const email = e.target.value
 
-        const splitEmail = email.split("@")
+        const splitEmail = String(email).split("@")
 
         console.log(splitEmail.lastIndex())
+        setEmail(e.target.value)
 
         // if (splitEmail.at(1) === "mail.kmutt.ac.th") {
         //     console.log("Split email: " + splitEmail.at(0))
@@ -59,40 +60,46 @@ export default function Register(props) {
         e.preventDefault()
 
         let checkByID = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/register/check/${studentID}`)
-        if (password === repassword) {
-            if (checkByID.data.alreadyHaved === true) {
-                let update = {
-                    title: title,
-                    firstname: firstname,
-                    lastname: lastname,
-                    faculty: faculty,
-                    year: year,
-                    email: email.toLowerCase(),
-                    line_id: userLineID,
-                    password: password
+
+        const splitEmail = email.split("@")
+        if (splitEmail.at(1) === "mail.kmutt.ac.th") {
+            if (password === repassword) {
+                if (checkByID.data.alreadyHaved === true) {
+                    let update = {
+                        title: title,
+                        firstname: firstname,
+                        lastname: lastname,
+                        faculty: faculty,
+                        year: year,
+                        email: email.toLowerCase(),
+                        line_id: userLineID,
+                        password: password
+                    }
+                    axios.put(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/update/${studentID}`, update)
+                        .then(() => {
+                            axios.post(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/genandsend/${studentID}`)
+                            history.push('/')
+                        })
+                } else {
+                    let create = {
+                        email: email.toLowerCase(),
+                        faculty: faculty,
+                        firstname: firstname,
+                        lastname: lastname,
+                        line_id: userLineID,
+                        password: password,
+                        title: title,
+                        year: year
+                    }
+                    axios.post(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/create/${studentID}`, create)
+                        .then(() => {
+                            axios.post(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/genandsend/${studentID}`)
+                            history.push('/')
+                        })
                 }
-                axios.put(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/update/${studentID}`, update)
-                    .then(() => {
-                        axios.post(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/genandsend/${studentID}`)
-                        history.push('/')
-                    })
-            } else {
-                let create = {
-                    email: email.toLowerCase(),
-                    faculty: faculty,
-                    firstname: firstname,
-                    lastname: lastname,
-                    line_id: userLineID,
-                    password: password,
-                    title: title,
-                    year: year
-                }
-                axios.post(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/create/${studentID}`, create)
-                    .then(() => {
-                        axios.post(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/genandsend/${studentID}`)
-                        history.push('/')
-                    })
             }
+        } else {
+            setErrorStatus("Your email not longer in KMUTT domain.")
         }
     }
 
@@ -170,7 +177,7 @@ export default function Register(props) {
                                     </select>
                                 </div>
                                 <div className="col-9">
-                                    <input className="form-control" placeholder="Email" name="email" value={email} onChange={(e) => validationEmail(e)} />
+                                    <input className="form-control" placeholder="Email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                                 </div>
                             </div>
                             <div className="row p-2">
@@ -185,7 +192,7 @@ export default function Register(props) {
                             </div>
                             <div className="row p-2">
                                 <div className="col-12 form-group">
-                                    <div style={{color: 'black'}}>{errorStatus}</div>
+                                    <div style={{ color: 'black' }}>{errorStatus}</div>
                                 </div>
                             </div>
                         </div>

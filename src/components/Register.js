@@ -173,7 +173,7 @@ export default function Register(props) {
                             </div>
                             <div className="row p-2">
                                 <div className="col-12 form-group">
-                                    <div style={{ color: 'black' }}>{errorStatus}</div>
+                                    <div className="alert alert-warning">{errorStatus}</div>
                                 </div>
                             </div>
                         </div>

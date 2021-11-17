@@ -32,14 +32,16 @@ export default function Register(props) {
 
         const splitEmail = email.split("@")
 
-        if (splitEmail.at(1) === "mail.kmutt.ac.th") {
-            console.log("Split email: " + splitEmail.at(0))
-            console.log("Split domain " + splitEmail.at(1))
-            setEmail(e.target.value)
-            setErrorStatus("Your email valid.")
-        } else {
-            setErrorStatus("Your email not longer in kmutt domain.")
-        }
+        console.log(splitEmail.lastIndex())
+
+        // if (splitEmail.at(1) === "mail.kmutt.ac.th") {
+        //     console.log("Split email: " + splitEmail.at(0))
+        //     console.log("Split domain " + splitEmail.at(1))
+        //     setEmail(e.target.value)
+        //     setErrorStatus("Your email valid.")
+        // } else {
+        //     setErrorStatus("Your email not longer in kmutt domain.")
+        // }
 
     }
 
@@ -183,7 +185,7 @@ export default function Register(props) {
                             </div>
                             <div className="row p-2">
                                 <div className="col-12 form-group">
-                                    {errorStatus}
+                                    <div style={{color: 'black'}}>{errorStatus}</div>
                                 </div>
                             </div>
                         </div>

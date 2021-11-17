@@ -32,15 +32,13 @@ export default function Register(props) {
 
         const splitEmail = email.split("@")
 
-        if (splitEmail !== []) {
-            if (splitEmail.at(1) === "mail.kmutt.ac.th") {
-                console.log("Split email: " + splitEmail.at(0))
-                console.log("Split domain " + splitEmail.at(1))
-                setEmail(e.target.value)
-                setErrorStatus("Your email valid.")
-            } else {
-                setErrorStatus("Your email not longer in kmutt domain.")
-            }
+        if (splitEmail.at(1) === "mail.kmutt.ac.th") {
+            console.log("Split email: " + splitEmail.at(0))
+            console.log("Split domain " + splitEmail.at(1))
+            setEmail(e.target.value)
+            setErrorStatus("Your email valid.")
+        } else {
+            setErrorStatus("Your email not longer in kmutt domain.")
         }
 
     }

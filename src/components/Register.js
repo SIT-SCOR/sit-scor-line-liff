@@ -175,7 +175,7 @@ export default function Register(props) {
                                 errorStatus !== "" ?
                                     <div className="row p-2">
                                         <div className="col-12 form-group">
-                                            <div className="alert alert-warning">{errorStatus}</div>
+                                            <div className="alert alert-warning" style={{fontSize: '1rem'}}>{errorStatus}</div>
                                         </div>
                                     </div>
                                     :

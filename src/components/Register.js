@@ -16,6 +16,7 @@ export default function Register(props) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [repassword, setRepassword] = useState("")
+    const [errorStatus, setErrorStatus] = useState("")
 
     const homepage = () => {
         history.push("/")
@@ -24,6 +25,16 @@ export default function Register(props) {
     const onChangeTitle = (e) => {
         const selectedTitle = e.target.value
         setTitle(selectedTitle)
+    }
+
+    const validationEmail = (e) => {
+        const email = String(e.target.value)
+
+        const splitEmail = email.split("@")
+        console.log("Split: " + splitEmail)
+
+        setErrorStatus("None")
+        setEmail(e.target.value)
     }
 
     const onChangeYear = (e) => {
@@ -162,6 +173,11 @@ export default function Register(props) {
                             <div className="row p-2">
                                 <div className="col-12 form-group">
                                     <input type="password" className="form-control" placeholder="Re-Password" name="repassword" value={repassword} onChange={(e) => setRepassword(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="row p-2">
+                                <div className="col-12 form-group">
+                                    {errorStatus}
                                 </div>
                             </div>
                         </div>

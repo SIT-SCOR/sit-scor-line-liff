@@ -171,11 +171,16 @@ export default function Register(props) {
                                     <input type="password" className="form-control" placeholder="Re-Password" name="repassword" value={repassword} onChange={(e) => setRepassword(e.target.value)} />
                                 </div>
                             </div>
-                            <div className="row p-2">
-                                <div className="col-12 form-group">
-                                    <div className="alert alert-warning">{errorStatus}</div>
-                                </div>
-                            </div>
+                            {
+                                errorStatus !== "" ?
+                                    <div className="row p-2">
+                                        <div className="col-12 form-group">
+                                            <div className="alert alert-warning">{errorStatus}</div>
+                                        </div>
+                                    </div>
+                                    :
+                                    null
+                            }
                         </div>
                     </div>
                     <div className="row p-2 d-flex justify-content-center">

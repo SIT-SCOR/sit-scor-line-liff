@@ -17,6 +17,7 @@ export default function EditInfo(props) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [repassword, setRepassword] = useState("")
+    const [errorStatus, setErrorStatus] = useState("")
 
     useEffect(() => {
         const fetchInfo = async () => {
@@ -42,47 +43,52 @@ export default function EditInfo(props) {
         e.preventDefault()
 
         if (lineID !== "" && title !== "" && firstname !== "" && lastname !== "" && studentID !== "" && faculty !== "" && year !== "" && email !== "" && password !== "" && repassword !== "") {
-            if (password !== repassword) {
-                window.alert("Password and Re-password not match. Please enter password & re-password again !")
-            }
-            if (password === repassword) {
-                if (userLineID === lineID) {
-                    let studentUpdate = {
-                        title: title,
-                        firstname: firstname,
-                        lastname: lastname,
-                        faculty: faculty,
-                        year: year,
-                        email: email.toLowerCase(),
-                        line_id: lineID,
-                        password: password
-                    }
-                    axios.put(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/update/${studentID}`, studentUpdate)
-                        .then(() => {
-                            history.push('/ConfirmEdit')
-                        })
-                        .error(() => {
-                            window.alert("Error occur in server. Please contact admin.")
-                        })
-                } else {
-                    let studentUpdate = {
-                        title: title,
-                        firstname: firstname,
-                        lastname: lastname,
-                        faculty: faculty,
-                        year: year,
-                        email: email.toLowerCase(),
-                        line_id: userLineID,
-                        password: password
-                    }
-                    axios.put(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/update/${studentID}`, studentUpdate)
-                        .then(() => {
-                            history.push('/ConfirmEdit')
-                        })
-                        .error(() => {
-                            window.alert("Error occur in server. Please contact admin.")
-                        })
+            const splitEmail = email.split("@")
+            if (splitEmail.at(1) === "mail.kmutt.ac.th") {
+                if (password !== repassword) {
+                    window.alert("Password and Re-password not match. Please enter password & re-password again !")
                 }
+                if (password === repassword) {
+                    if (userLineID === lineID) {
+                        let studentUpdate = {
+                            title: title,
+                            firstname: firstname,
+                            lastname: lastname,
+                            faculty: faculty,
+                            year: year,
+                            email: email.toLowerCase(),
+                            line_id: lineID,
+                            password: password
+                        }
+                        axios.put(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/update/${studentID}`, studentUpdate)
+                            .then(() => {
+                                history.push('/ConfirmEdit')
+                            })
+                            .error(() => {
+                                window.alert("Error occur in server. Please contact admin.")
+                            })
+                    } else {
+                        let studentUpdate = {
+                            title: title,
+                            firstname: firstname,
+                            lastname: lastname,
+                            faculty: faculty,
+                            year: year,
+                            email: email.toLowerCase(),
+                            line_id: userLineID,
+                            password: password
+                        }
+                        axios.put(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/update/${studentID}`, studentUpdate)
+                            .then(() => {
+                                history.push('/ConfirmEdit')
+                            })
+                            .error(() => {
+                                window.alert("Error occur in server. Please contact admin.")
+                            })
+                    }
+                }
+            } else {
+                setErrorStatus("Your email not longer in KMUTT domain.")
             }
         } else {
             window.alert("Please enter every input")
@@ -156,7 +162,7 @@ export default function EditInfo(props) {
                                 </div>
                                 <div className="col-6">
                                     <select className="form-control" id="sel1" name="faculty" value={faculty} onChange={(e) => onChangeFaculty(e)} >
-                                        <option value="Faculty...">Year...</option>
+                                        <option value="Faculty...">Faculty...</option>
                                         <option value="IT">IT</option>
                                         <option value="CS">CS</option>
                                         <option value="DSI">DSI</option>
@@ -189,6 +195,11 @@ export default function EditInfo(props) {
                             <div className="row p-2">
                                 <div className="col-12 form-group">
                                     <input type="password" className="form-control" placeholder="Re-Password" name="repassword" value={repassword} onChange={(e) => setRepassword(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="row p-2">
+                                <div className="col-12 form-group">
+                                    <div style={{ color: 'black' }}>{errorStatus}</div>
                                 </div>
                             </div>
                         </div>

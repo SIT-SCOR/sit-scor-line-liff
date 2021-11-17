@@ -27,25 +27,6 @@ export default function Register(props) {
         setTitle(selectedTitle)
     }
 
-    const validationEmail = (e) => {
-        const email = e.target.value
-
-        const splitEmail = String(email).split("@")
-
-        console.log(splitEmail.lastIndex())
-        setEmail(e.target.value)
-
-        // if (splitEmail.at(1) === "mail.kmutt.ac.th") {
-        //     console.log("Split email: " + splitEmail.at(0))
-        //     console.log("Split domain " + splitEmail.at(1))
-        //     setEmail(e.target.value)
-        //     setErrorStatus("Your email valid.")
-        // } else {
-        //     setErrorStatus("Your email not longer in kmutt domain.")
-        // }
-
-    }
-
     const onChangeYear = (e) => {
         const selectedYear = e.target.value
         setYear(selectedYear)
@@ -155,7 +136,7 @@ export default function Register(props) {
                                 </div>
                                 <div className="col-6">
                                     <select className="form-control" id="sel1" name="faculty" value={faculty} onChange={(e) => onChangeFaculty(e)} >
-                                        <option value="Faculty...">Year...</option>
+                                        <option value="Faculty...">Faculty...</option>
                                         <option value="IT">IT</option>
                                         <option value="CS">CS</option>
                                         <option value="DSI">DSI</option>

@@ -45,6 +45,8 @@ export default function Register(props) {
         if (title !== "" && firstname !== "" && lastname !== "" && studentID !== "" && faculty !== "" && year !== "" && email !== "" && password !== "" && repassword !== "") {
             if (studentID.length === 11) {
                 const splitEmail = email.split("@")
+                console.log(splitEmail)
+                console.log(splitEmail.at(1))
                 if (splitEmail.at(1) === "mail.kmutt.ac.th") {
                     if (password.length >= 8 && repassword >= 8) {
                         if (password === repassword) {

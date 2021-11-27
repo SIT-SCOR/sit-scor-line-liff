@@ -124,7 +124,7 @@ export default function Register(props) {
                                 <div className="col-12 form-group">
                                     <div className="form-floating">
                                         <input disabled className="form-control" placeholder="LINE ID" name="lineid" id="floatingLineid" value={userLineID} />
-                                        <label for="floatingLineid">LINE ID</label>
+                                        <label for="floatingLineid" style={{color: "black", fontSize: "18px"}}>LINE ID</label>
                                     </div>
                                 </div>
                             </div>

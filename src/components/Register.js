@@ -42,14 +42,15 @@ export default function Register(props) {
     }
 
     const onChangeEmail = (e) => {
-        const changeEmail = e.target.value
-        setEmail(changeEmail)
+        setEmail(e.target.value)
         console.log(email)
         if (email.includes("@") === true) {
             const splitEmail = email.split("@")
             console.log(splitEmail)
             if (splitEmail.at(1) !== "mail.kmutt.ac.th") {
                 setErrorEmail("Your email not in KMUTT Domain")
+            } else {
+                setErrorEmail("")
             }
         } else {
             setErrorEmail("Please type @ in email")

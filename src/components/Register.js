@@ -157,8 +157,8 @@ export default function Register(props) {
                             <div className="row p-2">
                                 <div className="col-6">
                                     <div className="form-floating">
-                                        <input className="form-control" placeholder="Student ID ex. 61130500888" name="studentid" value={studentID} onChange={(e) => setStudentID(e.target.value)} />
-                                        <label for="floatingStudentID" style={{color: "grey", fontSize: "16px"}}>Student ID</label>
+                                        <input className="form-control" name="studentid" value={studentID} onChange={(e) => setStudentID(e.target.value)} />
+                                        <label for="floatingStudentID" style={{color: "grey", fontSize: "16px"}}>Student ID ex. 61130500888</label>
                                     </div>
                                 </div>
                                 <div className="col-6">
@@ -169,8 +169,8 @@ export default function Register(props) {
                                             <option value="CS">CS</option>
                                             <option value="DSI">DSI</option>
                                         </select>
+                                        <label for="floatingFaculty" style={{color: "grey", fontSize: "16px"}}>Faculty</label>
                                     </div>
-                                    <label for="floatingFaculty" style={{color: "grey", fontSize: "16px"}}>Faculty</label>
                                 </div>
                             </div>
                             <div className="row p-2">
@@ -187,11 +187,14 @@ export default function Register(props) {
                                             <option value="7">7</option>
                                             <option value="8">8</option>
                                         </select>
+                                        <label for="floatingYear" style={{color: "grey", fontSize: "16px"}}>Faculty</label>
                                     </div>
-                                    <label for="floatingYear" style={{color: "grey", fontSize: "16px"}}>Faculty</label>
                                 </div>
                                 <div className="col-9">
-                                    <input className="form-control" placeholder="Email ex. name.xxx@mail.kmutt.ac.th" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                    <div className="form-floating">
+                                        <input className="form-control" name="email" value={email} id="floatingEmail" onChange={(e) => setEmail(e.target.value)} />
+                                        <label for="floatingEmail" style={{color: "grey", fontSize: "16px"}}>Email ex. name.xxx@mail.kmutt.ac.th</label>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row p-2">

@@ -161,7 +161,7 @@ export default function Register(props) {
                                 <div className="col-6">
                                     <div className="form-floating">
                                         <input className="form-control" placeholder="Student ID ex. 61130500888" name="studentid" value={studentID} onChange={(e) => setStudentID(e.target.value)} />
-                                        <label for="floatingStudentID" style={{color: "grey", fontSize: "16px"}}>Student ID ex. 61130500888</label>
+                                        <label for="floatingStudentID" style={{color: "grey", fontSize: "16px"}}>StudentID (ex 61130500111)</label>
                                     </div>
                                 </div>
                                 <div className="col-6">
@@ -196,7 +196,7 @@ export default function Register(props) {
                                 <div className="col-9">
                                     <div className="form-floating">
                                         <input className="form-control" placeholder="Email ex. name.xxx@mail.kmutt.ac.th" name="email" value={email} id="floatingEmail" onChange={(e) => setEmail(e.target.value)} />
-                                        <label for="floatingEmail" style={{color: "grey", fontSize: "16px"}}>Email ex. name.xxx@mail.kmutt.ac.th</label>
+                                        <label for="floatingEmail" style={{color: "grey", fontSize: "16px"}}>Email(ex xx.xx@mail.kmutt.ac.th)</label>
                                     </div>
                                 </div>
                             </div>
@@ -212,7 +212,7 @@ export default function Register(props) {
                                 <div className="col-12 form-group">
                                     <div className="form-floating">
                                         <input type="password" className="form-control" placeholder="Re-Password (equal 8 or more than and match with password)" id="floatingRepassword" name="repassword" value={repassword} onChange={(e) => setRepassword(e.target.value)} />
-                                        <label for="floatingRepassword" style={{color: "grey", fontSize: "16px"}}>Re-Password (equal 8 or more than and match with password)</label>
+                                        <label for="floatingRepassword" style={{color: "grey", fontSize: "16px"}}>Re-Password</label>
                                     </div>
                                 </div>
                             </div>

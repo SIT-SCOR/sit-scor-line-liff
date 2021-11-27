@@ -17,6 +17,10 @@ export default function Register(props) {
     const [password, setPassword] = useState("")
     const [repassword, setRepassword] = useState("")
     const [errorStatus, setErrorStatus] = useState("")
+    // const [errorStudentId, setErrorStudentId] = useState("")
+    const [errorEmail, setErrorEmail] = useState(Boolean)
+    // const [errorPassword, setErrorPassword] = useState("")
+    // const [errorConfirmPassword, setErrorConfirmPassword] = useState("")
 
     const homepage = () => {
         history.push("/")
@@ -35,6 +39,17 @@ export default function Register(props) {
     const onChangeFaculty = (e) => {
         const selectedFaculty = e.target.value
         setFaculty(selectedFaculty)
+    }
+
+    const onChangeEmail = (e) => {
+        const changeEmail = e.target.value
+        setEmail(changeEmail)
+        const splitEmail = email.split("@")
+        if (splitEmail.at(1) === "mail.kmutt.ac.th") {
+            setErrorEmail(false)
+        } else {
+            setErrorEmail(true)
+        }
     }
 
     const registerInfo = async (e) => {
@@ -132,7 +147,7 @@ export default function Register(props) {
                             </div>
                             <div className="row p-2">
                                 <div className="col-6">
-                                    <input className="form-control" placeholder="Student ID" name="studentid" value={studentID} onChange={(e) => setStudentID(e.target.value)} />
+                                    <input className="form-control" placeholder="Student ID ex. 61130500888" name="studentid" value={studentID} onChange={(e) => setStudentID(e.target.value)} />
                                 </div>
                                 <div className="col-6">
                                     <select className="form-control" id="sel1" name="faculty" value={faculty} onChange={(e) => onChangeFaculty(e)} >
@@ -158,7 +173,8 @@ export default function Register(props) {
                                     </select>
                                 </div>
                                 <div className="col-9">
-                                    <input className="form-control" placeholder="Email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                    <input className="form-control" placeholder="Email ex. name.xxx@mail.kmutt.ac.th" name="email" value={email} onChange={(e) => onChangeEmail(e)} />
+                                    {errorEmail === false ? <div className="valid-feedback">Good</div> : <div className="invalid-feedback">Not in KMUTT Domain</div>}
                                 </div>
                             </div>
                             <div className="row p-2">

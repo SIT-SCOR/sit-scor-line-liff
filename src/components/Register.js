@@ -42,57 +42,60 @@ export default function Register(props) {
 
         let checkByID = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/register/check/${studentID}`)
 
-        if (studentID.length === 11) {
-            const splitEmail = email.split("@")
-            if (splitEmail.at(1) === "mail.kmutt.ac.th") {
-                if (password.length >= 8) {
-                    if (password === repassword) {
-                        if (checkByID.data.alreadyHaved === true) {
-                            let update = {
-                                title: title,
-                                firstname: firstname,
-                                lastname: lastname,
-                                faculty: faculty,
-                                year: year,
-                                email: email.toLowerCase(),
-                                line_id: userLineID,
-                                password: password
+        if (title !== "" && firstname !== "" && lastname !== "" && studentID !== "" && faculty !== "" && year !== "" && email !== "" && password !== "" && repassword !== "") {
+            if (studentID.length === 11) {
+                const splitEmail = email.split("@")
+                if (splitEmail.at(1) === "mail.kmutt.ac.th") {
+                    if (password.length >= 8 && repassword >= 8) {
+                        if (password === repassword) {
+                            if (checkByID.data.alreadyHaved === true) {
+                                let update = {
+                                    title: title,
+                                    firstname: firstname,
+                                    lastname: lastname,
+                                    faculty: faculty,
+                                    year: year,
+                                    email: email.toLowerCase(),
+                                    line_id: userLineID,
+                                    password: password
+                                }
+                                axios.put(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/update/${studentID}`, update)
+                                    .then(() => {
+                                        axios.post(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/genandsend/${studentID}`)
+                                        history.push('/')
+                                    })
+                            } else {
+                                let create = {
+                                    email: email.toLowerCase(),
+                                    faculty: faculty,
+                                    firstname: firstname,
+                                    lastname: lastname,
+                                    line_id: userLineID,
+                                    password: password,
+                                    title: title,
+                                    year: year
+                                }
+                                axios.post(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/create/${studentID}`, create)
+                                    .then(() => {
+                                        axios.post(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/genandsend/${studentID}`)
+                                        history.push('/')
+                                    })
                             }
-                            axios.put(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/update/${studentID}`, update)
-                                .then(() => {
-                                    axios.post(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/genandsend/${studentID}`)
-                                    history.push('/')
-                                })
                         } else {
-                            let create = {
-                                email: email.toLowerCase(),
-                                faculty: faculty,
-                                firstname: firstname,
-                                lastname: lastname,
-                                line_id: userLineID,
-                                password: password,
-                                title: title,
-                                year: year
-                            }
-                            axios.post(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/create/${studentID}`, create)
-                                .then(() => {
-                                    axios.post(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/genandsend/${studentID}`)
-                                    history.push('/')
-                                })
+                            setErrorStatus("Password and Re-password not match")
                         }
                     } else {
-                        setErrorStatus("Password and Re-password not match")
+                        setErrorStatus("Your password or repassword must equal 8 or more than.")
                     }
                 } else {
-                    setErrorStatus("Your password must equal 8 or more than.")
+                    setErrorStatus("Your email no longer in KMUTT domain.")
                 }
             } else {
-                setErrorStatus("Your email no longer in KMUTT domain.")
+                setErrorStatus("Student ID must have 11 characters")
             }
         } else {
-            setErrorStatus("Student ID must have 11 characters")
-        }
-        
+            setErrorStatus("Please enter every input")
+        }    
     }
 
     return (

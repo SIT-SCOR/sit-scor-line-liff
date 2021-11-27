@@ -156,30 +156,39 @@ export default function Register(props) {
                             </div>
                             <div className="row p-2">
                                 <div className="col-6">
-                                    <input className="form-control" placeholder="Student ID ex. 61130500888" name="studentid" value={studentID} onChange={(e) => setStudentID(e.target.value)} />
+                                    <div className="form-floating">
+                                        <input className="form-control" placeholder="Student ID ex. 61130500888" name="studentid" value={studentID} onChange={(e) => setStudentID(e.target.value)} />
+                                        <label for="floatingStudentID" style={{color: "grey", fontSize: "16px"}}>Student ID</label>
+                                    </div>
                                 </div>
                                 <div className="col-6">
-                                    <select className="form-control" id="sel1" name="faculty" value={faculty} onChange={(e) => onChangeFaculty(e)} >
-                                        <option value="Faculty...">Faculty...</option>
-                                        <option value="IT">IT</option>
-                                        <option value="CS">CS</option>
-                                        <option value="DSI">DSI</option>
-                                    </select>
+                                    <div className="form-floating">
+                                        <select className="form-control" id="sel1" name="faculty" value={faculty} id="floatingFaculty" onChange={(e) => onChangeFaculty(e)} >
+                                            <option value="Faculty...">Faculty...</option>
+                                            <option value="IT">IT</option>
+                                            <option value="CS">CS</option>
+                                            <option value="DSI">DSI</option>
+                                        </select>
+                                    </div>
+                                    <label for="floatingFaculty" style={{color: "grey", fontSize: "16px"}}>Faculty</label>
                                 </div>
                             </div>
                             <div className="row p-2">
                                 <div className="col-3">
-                                    <select className="form-control" id="sel1" name="year" value={year} onChange={(e) => onChangeYear(e)} >
-                                        <option value="Year...">Year...</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                    </select>
+                                    <div className="form-floating">
+                                        <select className="form-control" id="sel1" name="year" value={year} id="floatingYear" onChange={(e) => onChangeYear(e)} >
+                                            <option value="Year...">Year...</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                        </select>
+                                    </div>
+                                    <label for="floatingYear" style={{color: "grey", fontSize: "16px"}}>Faculty</label>
                                 </div>
                                 <div className="col-9">
                                     <input className="form-control" placeholder="Email ex. name.xxx@mail.kmutt.ac.th" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />

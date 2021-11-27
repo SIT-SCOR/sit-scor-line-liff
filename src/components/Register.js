@@ -18,7 +18,7 @@ export default function Register(props) {
     const [repassword, setRepassword] = useState("")
     const [errorStatus, setErrorStatus] = useState("")
     // const [errorStudentId, setErrorStudentId] = useState("")
-    const [errorEmail, setErrorEmail] = useState(Boolean)
+    const [errorEmail, setErrorEmail] = useState("")
     // const [errorPassword, setErrorPassword] = useState("")
     // const [errorConfirmPassword, setErrorConfirmPassword] = useState("")
 
@@ -195,7 +195,7 @@ export default function Register(props) {
                                 errorEmail !== "" ?
                                     <div className="row p-2">
                                         <div className="col-12 form-group">
-                                            <div className="alert alert-warning" style={{fontSize: '1rem'}}>{errorStatus}</div>
+                                            <div className="alert alert-warning" style={{fontSize: '1rem'}}>{errorEmail}</div>
                                         </div>
                                     </div>
                                     :

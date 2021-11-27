@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import Logo from '../images/Logo.png'
 import axios from 'axios';
-import CheckIcon from '@mui/icons-material/Check';
-import CloseIcon from '@mui/icons-material/Close';
+import CheckIcon from '@material-ui/icons/Check';
+import CloseIcon from '@material-ui/icons/Close';
 
 export default function Register(props) {
 

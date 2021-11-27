@@ -45,7 +45,7 @@ export default function EditInfo(props) {
         if (lineID !== "" && title !== "" && firstname !== "" && lastname !== "" && studentID !== "" && faculty !== "" && year !== "" && email !== "" && password !== "" && repassword !== "") {
             if (studentID.length === 11) {
                 const splitEmail = email.split("@")
-                if (splitEmail.at(1) === "mail.kmutt.ac.th") {
+                if (splitEmail[1] === "mail.kmutt.ac.th") {
                     if (password.length >= 8 && repassword >= 8) {
                         if (password === repassword) {
                             if (userLineID === lineID) {

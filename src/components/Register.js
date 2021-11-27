@@ -161,7 +161,7 @@ export default function Register(props) {
                                 <div className="col-6">
                                     <div className="form-floating">
                                         <input className="form-control" placeholder="Student ID ex. 61130500888" name="studentid" value={studentID} onChange={(e) => setStudentID(e.target.value)} />
-                                        <label for="floatingStudentID" style={{color: "grey", fontSize: "16px"}}>StudentID (ex 61130500111)</label>
+                                        <label for="floatingStudentID" style={{color: "grey", fontSize: "16px"}}>Student ID (Full)</label>
                                     </div>
                                 </div>
                                 <div className="col-6">
@@ -196,7 +196,7 @@ export default function Register(props) {
                                 <div className="col-9">
                                     <div className="form-floating">
                                         <input className="form-control" placeholder="Email ex. name.xxx@mail.kmutt.ac.th" name="email" value={email} id="floatingEmail" onChange={(e) => setEmail(e.target.value)} />
-                                        <label for="floatingEmail" style={{color: "grey", fontSize: "16px"}}>Email(ex xx.xx@mail.kmutt.ac.th)</label>
+                                        <label for="floatingEmail" style={{color: "grey", fontSize: "16px"}}>Email (mail.kmutt.ac.th)</label>
                                     </div>
                                 </div>
                             </div>

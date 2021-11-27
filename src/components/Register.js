@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import Logo from '../images/Logo.png'
 import axios from 'axios';
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
 
 export default function Register(props) {
 
@@ -45,6 +47,7 @@ export default function Register(props) {
         const changeEmail = e.target.value
         setEmail(changeEmail)
         const splitEmail = email.split("@")
+        console.log(splitEmail)
         if (splitEmail.at(1) === "mail.kmutt.ac.th") {
             setErrorEmail(false)
         } else {
@@ -174,7 +177,7 @@ export default function Register(props) {
                                 </div>
                                 <div className="col-9">
                                     <input className="form-control" placeholder="Email ex. name.xxx@mail.kmutt.ac.th" name="email" value={email} onChange={(e) => onChangeEmail(e)} />
-                                    {errorEmail === false ? <div className="valid-feedback">Good</div> : <div className="invalid-feedback">Not in KMUTT Domain</div>}
+                                    {errorEmail === false ? <CheckIcon /> : <CloseIcon /> }
                                 </div>
                             </div>
                             <div className="row p-2">

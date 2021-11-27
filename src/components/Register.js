@@ -124,24 +124,34 @@ export default function Register(props) {
                                 <div className="col-12 form-group">
                                     <div className="form-floating">
                                         <input disabled className="form-control" placeholder="LINE ID" name="lineid" id="floatingLineid" value={userLineID} />
-                                        <label for="floatingLineid" style={{color: "black", fontSize: "18px"}}>LINE ID</label>
+                                        <label for="floatingLineid" style={{color: "grey", fontSize: "16px"}}>LINE ID</label>
                                     </div>
                                 </div>
                             </div>
                             <div className="row p-2">
                                 <div className="col-4">
-                                    <select className="form-control" id="sel1" name="title" value={title} onChange={(e) => onChangeTitle(e)} >
-                                        <option value="Title...">Title...</option>
-                                        <option value="Mr.">Mr.</option>
-                                        <option value="Mrs.">Mrs.</option>
-                                        <option value="Miss">Miss</option>
-                                    </select>
+                                    <div className="form-floating">
+                                        <select className="form-control" id="sel1" name="title" value={title} id="floatingTitle" onChange={(e) => onChangeTitle(e)} >
+                                            <option value="Title...">Title...</option>
+                                            <option value="Mr.">Mr.</option>
+                                            <option value="Mrs.">Mrs.</option>
+                                            <option value="Miss">Miss</option>
+                                        </select>
+                                        <label for="floatingTitle" style={{color: "grey", fontSize: "16px"}}>Title</label>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <input className="form-control" placeholder="Firstname" name="firstname" value={firstname} onChange={(e) => setFirstname(e.target.value)} />
+                                    <div className="form-floating">
+                                        <input className="form-control" placeholder="Firstname" name="firstname" value={firstname} id="floatingFirstname" onChange={(e) => setFirstname(e.target.value)} />
+                                        <label for="floatingFirstname" style={{color: "grey", fontSize: "16px"}}>Firstname</label>
+                                    </div>
                                 </div>
                                 <div className="col-4">
-                                    <input className="form-control" placeholder="Lastname" name="lastname" value={lastname} onChange={(e) => setLastname(e.target.value)} />
+                                    <div className="form-floating">
+                                        <input className="form-control" placeholder="Lastname" name="lastname" value={lastname} id="floatingLastname" onChange={(e) => setLastname(e.target.value)} />
+                                        <label for="floatingLastname" style={{color: "grey", fontSize: "16px"}}>Lastname</label>
+                                    </div>
+                                    
                                 </div>
                             </div>
                             <div className="row p-2">

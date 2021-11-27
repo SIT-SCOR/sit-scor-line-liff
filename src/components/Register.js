@@ -4,6 +4,7 @@ import Logo from '../images/Logo.png'
 import axios from 'axios';
 import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
+import { red } from '@material-ui/core/colors';
 
 export default function Register(props) {
 

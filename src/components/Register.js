@@ -17,10 +17,6 @@ export default function Register(props) {
     const [password, setPassword] = useState("")
     const [repassword, setRepassword] = useState("")
     const [errorStatus, setErrorStatus] = useState("")
-    // const [errorStudentId, setErrorStudentId] = useState("")
-    const [errorEmail, setErrorEmail] = useState("")
-    // const [errorPassword, setErrorPassword] = useState("")
-    // const [errorConfirmPassword, setErrorConfirmPassword] = useState("")
 
     const homepage = () => {
         history.push("/")
@@ -41,68 +37,62 @@ export default function Register(props) {
         setFaculty(selectedFaculty)
     }
 
-    const onChangeEmail = (e) => {
-        setEmail(e.target.value)
-        console.log(email)
-        if (email.includes("@") === true) {
-            const splitEmail = email.split("@")
-            console.log(splitEmail)
-            if (splitEmail.at(1) !== "mail.kmutt.ac.th") {
-                setErrorEmail("Your email not in KMUTT Domain")
-            } else {
-                setErrorEmail("")
-            }
-        } else {
-            setErrorEmail("Please type @ in email")
-        }
-        
-    }
-
     const registerInfo = async (e) => {
         e.preventDefault()
 
         let checkByID = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/register/check/${studentID}`)
 
-        // const splitEmail = email.split("@")
-        // if (splitEmail.at(1) === "mail.kmutt.ac.th") {
-            if (password === repassword) {
-                if (checkByID.data.alreadyHaved === true) {
-                    let update = {
-                        title: title,
-                        firstname: firstname,
-                        lastname: lastname,
-                        faculty: faculty,
-                        year: year,
-                        email: email.toLowerCase(),
-                        line_id: userLineID,
-                        password: password
+        if (studentID.length === 11) {
+            const splitEmail = email.split("@")
+            if (splitEmail.at(1) === "mail.kmutt.ac.th") {
+                if (password.length >= 8) {
+                    if (password === repassword) {
+                        if (checkByID.data.alreadyHaved === true) {
+                            let update = {
+                                title: title,
+                                firstname: firstname,
+                                lastname: lastname,
+                                faculty: faculty,
+                                year: year,
+                                email: email.toLowerCase(),
+                                line_id: userLineID,
+                                password: password
+                            }
+                            axios.put(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/update/${studentID}`, update)
+                                .then(() => {
+                                    axios.post(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/genandsend/${studentID}`)
+                                    history.push('/')
+                                })
+                        } else {
+                            let create = {
+                                email: email.toLowerCase(),
+                                faculty: faculty,
+                                firstname: firstname,
+                                lastname: lastname,
+                                line_id: userLineID,
+                                password: password,
+                                title: title,
+                                year: year
+                            }
+                            axios.post(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/create/${studentID}`, create)
+                                .then(() => {
+                                    axios.post(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/genandsend/${studentID}`)
+                                    history.push('/')
+                                })
+                        }
+                    } else {
+                        setErrorStatus("Password and Re-password not match")
                     }
-                    axios.put(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/update/${studentID}`, update)
-                        .then(() => {
-                            axios.post(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/genandsend/${studentID}`)
-                            history.push('/')
-                        })
                 } else {
-                    let create = {
-                        email: email.toLowerCase(),
-                        faculty: faculty,
-                        firstname: firstname,
-                        lastname: lastname,
-                        line_id: userLineID,
-                        password: password,
-                        title: title,
-                        year: year
-                    }
-                    axios.post(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/student/create/${studentID}`, create)
-                        .then(() => {
-                            axios.post(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/genandsend/${studentID}`)
-                            history.push('/')
-                        })
+                    setErrorStatus("Your password must equal 8 or more than.")
                 }
+            } else {
+                setErrorStatus("Your email no longer in KMUTT domain.")
             }
-        // } else {
-        //     setErrorStatus("Your email not longer in KMUTT domain.")
-        // }
+        } else {
+            setErrorStatus("Student ID must have 11 characters")
+        }
+        
     }
 
     return (
@@ -132,7 +122,10 @@ export default function Register(props) {
                         <div className="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-6">
                             <div className="row p-2">
                                 <div className="col-12 form-group">
-                                    <input disabled className="form-control" placeholder="LINE ID" name="lineid" value={userLineID} />
+                                    <div className="form-floating">
+                                        <input disabled className="form-control" placeholder="LINE ID" name="lineid" id="floatingLineid" value={userLineID} />
+                                        <label for="floatingLineid">LINE ID</label>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row p-2">
@@ -179,24 +172,24 @@ export default function Register(props) {
                                     </select>
                                 </div>
                                 <div className="col-9">
-                                    <input className="form-control" placeholder="Email ex. name.xxx@mail.kmutt.ac.th" name="email" value={email} onChange={(e) => onChangeEmail(e)} />
+                                    <input className="form-control" placeholder="Email ex. name.xxx@mail.kmutt.ac.th" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                                 </div>
                             </div>
                             <div className="row p-2">
                                 <div className="col-12 form-group">
-                                    <input type="password" className="form-control" placeholder="Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                                    <input type="password" className="form-control" placeholder="Password (equal 8 or more than)" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                                 </div>
                             </div>
                             <div className="row p-2">
                                 <div className="col-12 form-group">
-                                    <input type="password" className="form-control" placeholder="Re-Password" name="repassword" value={repassword} onChange={(e) => setRepassword(e.target.value)} />
+                                    <input type="password" className="form-control" placeholder="Re-Password (equal 8 or more than and match with password)" name="repassword" value={repassword} onChange={(e) => setRepassword(e.target.value)} />
                                 </div>
                             </div>
                             {
-                                errorEmail !== "" ?
+                                errorStatus !== "" ?
                                     <div className="row p-2">
                                         <div className="col-12 form-group">
-                                            <div className="alert alert-warning" style={{fontSize: '1rem'}}>{errorEmail}</div>
+                                            <div className="alert alert-warning" style={{fontSize: '1rem'}}>{errorStatus}</div>
                                         </div>
                                     </div>
                                     :

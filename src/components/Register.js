@@ -2,9 +2,6 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import Logo from '../images/Logo.png'
 import axios from 'axios';
-import CheckIcon from '@material-ui/icons/Check';
-import CloseIcon from '@material-ui/icons/Close';
-import { red } from '@material-ui/core/colors';
 
 export default function Register(props) {
 
@@ -47,16 +44,15 @@ export default function Register(props) {
     const onChangeEmail = (e) => {
         const changeEmail = e.target.value
         setEmail(changeEmail)
+        console.log(email)
         if (email.includes("@") === true) {
             const splitEmail = email.split("@")
             console.log(splitEmail)
-            if (splitEmail.at(1) === "mail.kmutt.ac.th") {
-                setErrorEmail(false)
-            } else {
-                setErrorEmail(true)
+            if (splitEmail.at(1) !== "mail.kmutt.ac.th") {
+                setErrorEmail("Your email not in KMUTT Domain")
             }
         } else {
-            setErrorEmail(true)
+            setErrorEmail("Please type @ in email")
         }
         
     }
@@ -66,8 +62,8 @@ export default function Register(props) {
 
         let checkByID = await axios.get(`https://us-central1-sit-scor-b4c38.cloudfunctions.net/app/api/liff/register/check/${studentID}`)
 
-        const splitEmail = email.split("@")
-        if (splitEmail.at(1) === "mail.kmutt.ac.th") {
+        // const splitEmail = email.split("@")
+        // if (splitEmail.at(1) === "mail.kmutt.ac.th") {
             if (password === repassword) {
                 if (checkByID.data.alreadyHaved === true) {
                     let update = {
@@ -103,9 +99,9 @@ export default function Register(props) {
                         })
                 }
             }
-        } else {
-            setErrorStatus("Your email not longer in KMUTT domain.")
-        }
+        // } else {
+        //     setErrorStatus("Your email not longer in KMUTT domain.")
+        // }
     }
 
     return (
@@ -181,11 +177,8 @@ export default function Register(props) {
                                         <option value="8">8</option>
                                     </select>
                                 </div>
-                                <div className="col-8">
+                                <div className="col-9">
                                     <input className="form-control" placeholder="Email ex. name.xxx@mail.kmutt.ac.th" name="email" value={email} onChange={(e) => onChangeEmail(e)} />
-                                </div>
-                                <div className="col-1">
-                                    {errorEmail === false ? <CheckIcon color="success" /> : <CloseIcon sx={{color: red[500]}} /> }
                                 </div>
                             </div>
                             <div className="row p-2">
@@ -199,7 +192,7 @@ export default function Register(props) {
                                 </div>
                             </div>
                             {
-                                errorStatus !== "" ?
+                                errorEmail !== "" ?
                                     <div className="row p-2">
                                         <div className="col-12 form-group">
                                             <div className="alert alert-warning" style={{fontSize: '1rem'}}>{errorStatus}</div>

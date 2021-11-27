@@ -46,13 +46,18 @@ export default function Register(props) {
     const onChangeEmail = (e) => {
         const changeEmail = e.target.value
         setEmail(changeEmail)
-        const splitEmail = email.split("@")
-        console.log(splitEmail)
-        if (splitEmail.at(1) === "mail.kmutt.ac.th") {
-            setErrorEmail(false)
+        if (email.includes("@") === true) {
+            const splitEmail = email.split("@")
+            console.log(splitEmail)
+            if (splitEmail.at(1) === "mail.kmutt.ac.th") {
+                setErrorEmail(false)
+            } else {
+                setErrorEmail(true)
+            }
         } else {
             setErrorEmail(true)
         }
+        
     }
 
     const registerInfo = async (e) => {
@@ -175,9 +180,11 @@ export default function Register(props) {
                                         <option value="8">8</option>
                                     </select>
                                 </div>
-                                <div className="col-9">
+                                <div className="col-8">
                                     <input className="form-control" placeholder="Email ex. name.xxx@mail.kmutt.ac.th" name="email" value={email} onChange={(e) => onChangeEmail(e)} />
-                                    {errorEmail === false ? <CheckIcon /> : <CloseIcon /> }
+                                </div>
+                                <div className="col-1">
+                                    {errorEmail === false ? <CheckIcon color="success" /> : <CloseIcon sx={{color: red[500]}} /> }
                                 </div>
                             </div>
                             <div className="row p-2">

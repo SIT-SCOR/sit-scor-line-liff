@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/sit-scor-line-liff/static/css/main.ce1d5d70.chunk.css",
-    "main.js": "/sit-scor-line-liff/static/js/main.0602cb97.chunk.js",
-    "main.js.map": "/sit-scor-line-liff/static/js/main.0602cb97.chunk.js.map",
-    "runtime-main.js": "/sit-scor-line-liff/static/js/runtime-main.6d48ea8a.js",
-    "runtime-main.js.map": "/sit-scor-line-liff/static/js/runtime-main.6d48ea8a.js.map",
+    "main.js": "/sit-scor-line-liff/static/js/main.07da4b1c.chunk.js",
+    "main.js.map": "/sit-scor-line-liff/static/js/main.07da4b1c.chunk.js.map",
+    "runtime-main.js": "/sit-scor-line-liff/static/js/runtime-main.fec6ca21.js",
+    "runtime-main.js.map": "/sit-scor-line-liff/static/js/runtime-main.fec6ca21.js.map",
     "static/css/2.0a9ec390.chunk.css": "/sit-scor-line-liff/static/css/2.0a9ec390.chunk.css",
-    "static/js/2.33e2f5da.chunk.js": "/sit-scor-line-liff/static/js/2.33e2f5da.chunk.js",
-    "static/js/2.33e2f5da.chunk.js.map": "/sit-scor-line-liff/static/js/2.33e2f5da.chunk.js.map",
-    "static/js/3.d2a3e239.chunk.js": "/sit-scor-line-liff/static/js/3.d2a3e239.chunk.js",
-    "static/js/3.d2a3e239.chunk.js.map": "/sit-scor-line-liff/static/js/3.d2a3e239.chunk.js.map",
+    "static/js/2.6f23420c.chunk.js": "/sit-scor-line-liff/static/js/2.6f23420c.chunk.js",
+    "static/js/2.6f23420c.chunk.js.map": "/sit-scor-line-liff/static/js/2.6f23420c.chunk.js.map",
+    "static/js/3.0ffc2c19.chunk.js": "/sit-scor-line-liff/static/js/3.0ffc2c19.chunk.js",
+    "static/js/3.0ffc2c19.chunk.js.map": "/sit-scor-line-liff/static/js/3.0ffc2c19.chunk.js.map",
     "index.html": "/sit-scor-line-liff/index.html",
     "static/css/2.0a9ec390.chunk.css.map": "/sit-scor-line-liff/static/css/2.0a9ec390.chunk.css.map",
     "static/css/main.ce1d5d70.chunk.css.map": "/sit-scor-line-liff/static/css/main.ce1d5d70.chunk.css.map",
-    "static/js/2.33e2f5da.chunk.js.LICENSE.txt": "/sit-scor-line-liff/static/js/2.33e2f5da.chunk.js.LICENSE.txt",
+    "static/js/2.6f23420c.chunk.js.LICENSE.txt": "/sit-scor-line-liff/static/js/2.6f23420c.chunk.js.LICENSE.txt",
     "static/media/Logo.ca6111e2.png": "/sit-scor-line-liff/static/media/Logo.ca6111e2.png",
     "static/media/check_task.2c192296.png": "/sit-scor-line-liff/static/media/check_task.2c192296.png",
     "static/media/App.css": "/sit-scor-line-liff/static/media/lineliff.4e522da6.jpg",
@@ -22,10 +22,10 @@
     "static/media/verify.ce5df8af.png": "/sit-scor-line-liff/static/media/verify.ce5df8af.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.6d48ea8a.js",
+    "static/js/runtime-main.fec6ca21.js",
     "static/css/2.0a9ec390.chunk.css",
-    "static/js/2.33e2f5da.chunk.js",
+    "static/js/2.6f23420c.chunk.js",
     "static/css/main.ce1d5d70.chunk.css",
-    "static/js/main.0602cb97.chunk.js"
+    "static/js/main.07da4b1c.chunk.js"
   ]
 }

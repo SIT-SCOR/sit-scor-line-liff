@@ -46,7 +46,8 @@ export default function Register(props) {
             if (studentID.length === 11) {
                 const splitEmail = email.split("@")
                 console.log(splitEmail)
-                console.log(splitEmail.at(1))
+                console.log(splitEmail.indexOf("mail.kmutt.ac.th"))
+                console.log(splitEmail[0])
                 if (splitEmail.at(1) === "mail.kmutt.ac.th") {
                     if (password.length >= 8 && repassword >= 8) {
                         if (password === repassword) {
